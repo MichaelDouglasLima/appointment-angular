@@ -1,31 +1,31 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { TodayPageComponent } from './pages/today-page/today-page.component';
-import { AppointmentPageComponent } from './pages/appointment-page/appointment-page.component';
-import { CancelPageComponent } from './pages/cancel-page/cancel-page.component';
-import { HistoryClientPageComponent } from './pages/history-client-page/history-client-page.component';
-import { ProfessionalSchedulePageComponent } from './pages/professional-schedule-page/professional-schedule-page.component';
+import { TodayAppointmentsPageComponent } from './pages/today-appointments-page/today-appointments-page.component';
+import { CreateAppointmentPageComponent } from './pages/create-appointment-page/create-appointment-page.component';
+import { CancelAppointmentPageComponent } from './pages/cancel-appointment-page/cancel-appointment-page.component';
+import { ClientHistoryPageComponent } from './pages/client-history-page/client-history-page.component';
+import { ProfessionalWorkdaysPageComponent } from './pages/professional-workdays-page/professional-workdays-page.component';
 
 const routes: Routes = [
   {
-    path: 'today',
-    component: TodayPageComponent,
+    path: 'today-appointments',
+    component: TodayAppointmentsPageComponent,
   },
   {
-    path: 'appointment',
-    component: AppointmentPageComponent,
+    path: 'create-appointment',
+    component: CreateAppointmentPageComponent,
   },
   {
-    path: 'cancel',
-    component: CancelPageComponent,
+    path: 'cancel-appointment',
+    component: CancelAppointmentPageComponent,
   },
   {
-    path: 'history-client',
-    component: HistoryClientPageComponent,
+    path: 'client-history',
+    component: ClientHistoryPageComponent,
   },
   {
-    path: 'professional-schedule',
-    component: ProfessionalSchedulePageComponent,
+    path: 'professional-workdays',
+    component: ProfessionalWorkdaysPageComponent,
   },
 ];
 
