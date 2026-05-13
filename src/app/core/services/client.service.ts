@@ -11,7 +11,7 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  getClients(): Observable<Client[]> {
-    return this.http.get<Client[]>(this.baseUrl);
+  getClients(params: string = ''): Observable<Client[]> {
+    return this.http.get<Client[]>(this.baseUrl + params);
   }
 }

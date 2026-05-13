@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { MaintenanceRoutingModule } from './maintenance-routing.module';
 import { AreaPageComponent } from './pages/area-page/area-page.component';
@@ -16,6 +17,6 @@ import { ClientsTablePageComponent } from './pages/clients-table-page/clients-ta
     UserPageComponent,
     ClientsTablePageComponent,
   ],
-  imports: [CommonModule, MaintenanceRoutingModule],
+  imports: [CommonModule, MaintenanceRoutingModule, FormsModule],
 })
 export class MaintenanceModule {}

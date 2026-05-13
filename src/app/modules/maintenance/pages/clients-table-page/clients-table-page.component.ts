@@ -9,6 +9,7 @@ import { ClientService } from 'src/app/core/services/client.service';
 })
 export class ClientsTablePageComponent implements OnInit {
   clients: Client[] = [];
+  search: string = '';
 
   constructor(private clientService: ClientService) {}
 
@@ -17,8 +18,14 @@ export class ClientsTablePageComponent implements OnInit {
   }
 
   loadClients(): void {
-    this.clientService.getClients().subscribe({
-      next: (clients) => (this.clients = clients),
-    });
+    this.clientService
+      .getClients(
+        this.search.trim().length > 0
+          ? `?name_like=${this.search.trim()}`
+          : undefined,
+      )
+      .subscribe({
+        next: (clients) => (this.clients = clients),
+      });
   }
 }

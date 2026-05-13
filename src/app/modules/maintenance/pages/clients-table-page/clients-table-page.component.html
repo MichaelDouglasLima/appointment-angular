@@ -19,7 +19,8 @@
           <th scope="col"></th>
           <th scope="col">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Filtrar pelo nome" aria-label="Username filter">
+              <input type="text" class="form-control" placeholder="Filtrar pelo nome" aria-label="Username filter"
+                [(ngModel)]="search" (change)="loadClients()">
             </div>
           </th>
           <th scope="col"></th>
