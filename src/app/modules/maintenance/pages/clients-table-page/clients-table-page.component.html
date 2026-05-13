@@ -20,7 +20,7 @@
           <th scope="col">
             <div class="input-group mb-3">
               <input type="text" class="form-control" placeholder="Filtrar pelo nome" aria-label="Username filter"
-                [(ngModel)]="search" (change)="loadClients()">
+                [(ngModel)]="nameFilter" (keyup)="filterName()">
             </div>
           </th>
           <th scope="col"></th>
@@ -36,7 +36,7 @@
           <td>{{client.phone}}</td>
           <td>{{client.dateOfBirth}}</td>
           <td>
-            <img src="assets/svg/trash3-fill.svg" width="20" height="20" alt="remove">
+            <img src="assets/svg/trash3-fill.svg" width="20" height="20" alt="remove" (click)="remove(client)">
           </td>
         </tr>
       </tbody>

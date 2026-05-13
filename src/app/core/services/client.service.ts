@@ -11,7 +11,14 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  getClients(params: string = ''): Observable<Client[]> {
-    return this.http.get<Client[]>(this.baseUrl + params);
+  getClients(clientNameFilter: string): Observable<Client[]> {
+    let url = `${this.baseUrl}?name_like=${clientNameFilter}`;
+    return this.http.get<Client[]>(url);
+  }
+
+  deleteClient(client: Client): Observable<Client> {
+    return this.http.delete<Client>(
+      `http://localhost:3000/clients/${client.id}`,
+    );
   }
 }
