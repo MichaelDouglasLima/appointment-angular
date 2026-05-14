@@ -11,7 +11,6 @@ import { ClientService } from 'src/app/core/services/client.service';
 export class ClientsTablePageComponent implements OnInit {
   clientPage: Page<Client> = {} as Page<Client>;
   page = 1;
-  clients: Client[] = [];
   nameFilter: string = '';
 
   constructor(private clientService: ClientService) {}
@@ -42,7 +41,8 @@ export class ClientsTablePageComponent implements OnInit {
   delete(client: Client): void {
     this.clientService.delete(client).subscribe({
       next: () => {
-        this.clients = this.clients.filter((c) => c.id !== client.id); //OR... this.loadClients()
+        // this.clients = this.clients.filter((c) => c.id !== client.id); //OR... this.loadClients()
+        this.loadClients();
       },
       error: () => {
         alert('Erro ao remover o cliente!');
