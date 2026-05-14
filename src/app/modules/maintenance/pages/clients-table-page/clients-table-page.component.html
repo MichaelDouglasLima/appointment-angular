@@ -30,17 +30,21 @@
       </thead>
 
       <tbody>
-        <tr *ngFor="let client of clients">
+        <tr *ngFor="let client of clientPage.content">
           <th scope="row">{{client.id}}</th>
           <td><a href="/prototype/pages/client.html">{{client.name}}</a></td>
           <td>{{client.phone}}</td>
-          <td>{{client.dateOfBirth}}</td>
+          <td>{{client.dateOfBirth | date: 'dd/MM/yyyy' }}</td>
           <td>
-            <img src="assets/svg/trash3-fill.svg" width="20" height="20" alt="remove" (click)="remove(client)">
+            <img src="assets/svg/trash3-fill.svg" width="20" height="20" alt="remove" (click)="delete(client)">
           </td>
         </tr>
       </tbody>
     </table>
+
+    <ngb-pagination class="d-flex justify-content-center" [collectionSize]="clientPage.numberOfElements" [(page)]="page"
+      [boundaryLinks]="true" (pageChange)="pageChange()">
+    </ngb-pagination>
 
   </div>
 

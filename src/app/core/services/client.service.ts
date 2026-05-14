@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Client } from '../models/client';
 import { Observable } from 'rxjs';
@@ -11,14 +11,16 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  getClients(clientNameFilter: string): Observable<Client[]> {
-    let url = `${this.baseUrl}?name_like=${clientNameFilter}`;
-    return this.http.get<Client[]>(url);
+  getClients(
+    clientNameFilter: string,
+    page: number,
+  ): Observable<HttpResponse<Client[]>> {
+    let url = `${this.baseUrl}?name_like=${clientNameFilter}&_page=${page}&_sort=name`;
+    return this.http.get<Client[]>(url, { observe: 'response' });
   }
 
-  deleteClient(client: Client): Observable<Client> {
-    return this.http.delete<Client>(
-      `http://localhost:3000/clients/${client.id}`,
-    );
+  delete(client: Client): Observable<Client> {
+    let url = `${this.baseUrl}/${client.id}`;
+    return this.http.delete<Client>(url);
   }
 }

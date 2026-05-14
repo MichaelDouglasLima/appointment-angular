@@ -2,9 +2,703 @@
   "clients": [
     {
       "id": 1,
-      "name": "Maria Lucia",
-      "phone": "(15) 99705-3212",
-      "dateOfBirth": "10/06/2000"
+      "name": "Ramirez Morin",
+      "gender": "male",
+      "dateOfBirth": "2016-01-22",
+      "phone": "(84) 7513-2001"
+    },
+    {
+      "id": 2,
+      "name": "Shannon Schmidt",
+      "gender": "female",
+      "dateOfBirth": "2021-09-29",
+      "phone": "(94) 2424-3641"
+    },
+    {
+      "id": 3,
+      "name": "Carson Jordan",
+      "gender": "male",
+      "dateOfBirth": "2023-12-10",
+      "phone": "(82) 7541-3165"
+    },
+    {
+      "id": 4,
+      "name": "Latoya Dyer",
+      "gender": "female",
+      "dateOfBirth": "2025-02-07",
+      "phone": "(80) 9512-3259"
+    },
+    {
+      "id": 5,
+      "name": "Trudy Mcclain",
+      "gender": "female",
+      "dateOfBirth": "2022-05-29",
+      "phone": "(93) 5463-3607"
+    },
+    {
+      "id": 6,
+      "name": "Olive Kerr",
+      "gender": "female",
+      "dateOfBirth": "2021-12-07",
+      "phone": "(85) 3435-2043"
+    },
+    {
+      "id": 7,
+      "name": "Janie Herrera",
+      "gender": "female",
+      "dateOfBirth": "2016-11-26",
+      "phone": "(97) 6526-3964"
+    },
+    {
+      "id": 8,
+      "name": "Johnnie Castro",
+      "gender": "female",
+      "dateOfBirth": "2019-01-23",
+      "phone": "(97) 4422-2152"
+    },
+    {
+      "id": 9,
+      "name": "Geraldine Benson",
+      "gender": "female",
+      "dateOfBirth": "2015-05-20",
+      "phone": "(81) 6454-2178"
+    },
+    {
+      "id": 10,
+      "name": "Penelope Phelps",
+      "gender": "female",
+      "dateOfBirth": "2016-12-27",
+      "phone": "(89) 1500-3431"
+    },
+    {
+      "id": 11,
+      "name": "Minnie Rosa",
+      "gender": "female",
+      "dateOfBirth": "2025-09-09",
+      "phone": "(90) 9426-2492"
+    },
+    {
+      "id": 12,
+      "name": "Stanton Sutton",
+      "gender": "male",
+      "dateOfBirth": "2019-08-04",
+      "phone": "(90) 1553-3326"
+    },
+    {
+      "id": 13,
+      "name": "Fuentes Joseph",
+      "gender": "male",
+      "dateOfBirth": "2022-03-31",
+      "phone": "(80) 2426-3682"
+    },
+    {
+      "id": 14,
+      "name": "Hayden Cameron",
+      "gender": "male",
+      "dateOfBirth": "2015-04-25",
+      "phone": "(86) 2520-2855"
+    },
+    {
+      "id": 15,
+      "name": "Dora Allison",
+      "gender": "female",
+      "dateOfBirth": "2022-11-08",
+      "phone": "(81) 7500-2037"
+    },
+    {
+      "id": 16,
+      "name": "Noemi Logan",
+      "gender": "female",
+      "dateOfBirth": "2018-03-28",
+      "phone": "(98) 9468-2961"
+    },
+    {
+      "id": 17,
+      "name": "Ila Gillespie",
+      "gender": "female",
+      "dateOfBirth": "2018-04-10",
+      "phone": "(92) 4540-3424"
+    },
+    {
+      "id": 18,
+      "name": "Day Dickson",
+      "gender": "male",
+      "dateOfBirth": "2020-03-22",
+      "phone": "(90) 4485-3553"
+    },
+    {
+      "id": 19,
+      "name": "Arnold David",
+      "gender": "male",
+      "dateOfBirth": "2019-12-27",
+      "phone": "(93) 2572-2763"
+    },
+    {
+      "id": 20,
+      "name": "Mercado Mercer",
+      "gender": "male",
+      "dateOfBirth": "2015-05-31",
+      "phone": "(90) 1519-3540"
+    },
+    {
+      "id": 21,
+      "name": "Medina Kent",
+      "gender": "male",
+      "dateOfBirth": "2019-05-25",
+      "phone": "(85) 9549-3348"
+    },
+    {
+      "id": 22,
+      "name": "Hays Washington",
+      "gender": "male",
+      "dateOfBirth": "2020-09-15",
+      "phone": "(88) 1467-3079"
+    },
+    {
+      "id": 23,
+      "name": "Lelia Graham",
+      "gender": "female",
+      "dateOfBirth": "2020-12-11",
+      "phone": "(82) 8445-3153"
+    },
+    {
+      "id": 24,
+      "name": "Alyce Mccarthy",
+      "gender": "female",
+      "dateOfBirth": "2018-08-31",
+      "phone": "(89) 5540-2551"
+    },
+    {
+      "id": 25,
+      "name": "Karen Wolf",
+      "gender": "female",
+      "dateOfBirth": "2022-11-15",
+      "phone": "(90) 2406-3917"
+    },
+    {
+      "id": 26,
+      "name": "Cohen Barber",
+      "gender": "male",
+      "dateOfBirth": "2020-01-30",
+      "phone": "(96) 8433-3309"
+    },
+    {
+      "id": 27,
+      "name": "Newton Mcdonald",
+      "gender": "male",
+      "dateOfBirth": "2019-10-15",
+      "phone": "(81) 3460-3408"
+    },
+    {
+      "id": 28,
+      "name": "Camille Oneil",
+      "gender": "female",
+      "dateOfBirth": "2025-01-15",
+      "phone": "(92) 9566-2238"
+    },
+    {
+      "id": 29,
+      "name": "Moore Cote",
+      "gender": "male",
+      "dateOfBirth": "2014-04-10",
+      "phone": "(83) 3434-2047"
+    },
+    {
+      "id": 30,
+      "name": "Beasley Madden",
+      "gender": "male",
+      "dateOfBirth": "2019-05-08",
+      "phone": "(98) 6522-2627"
+    },
+    {
+      "id": 31,
+      "name": "Atkinson Hawkins",
+      "gender": "male",
+      "dateOfBirth": "2025-05-28",
+      "phone": "(87) 7521-2531"
+    },
+    {
+      "id": 32,
+      "name": "Osborn Williamson",
+      "gender": "male",
+      "dateOfBirth": "2015-09-29",
+      "phone": "(95) 9531-2477"
+    },
+    {
+      "id": 33,
+      "name": "Pruitt Finley",
+      "gender": "male",
+      "dateOfBirth": "2015-04-08",
+      "phone": "(92) 7425-2172"
+    },
+    {
+      "id": 34,
+      "name": "Oliver Cardenas",
+      "gender": "male",
+      "dateOfBirth": "2015-11-16",
+      "phone": "(89) 8487-2403"
+    },
+    {
+      "id": 35,
+      "name": "Rivers Durham",
+      "gender": "male",
+      "dateOfBirth": "2018-02-16",
+      "phone": "(81) 7515-2024"
+    },
+    {
+      "id": 36,
+      "name": "Lori Smith",
+      "gender": "female",
+      "dateOfBirth": "2026-02-17",
+      "phone": "(82) 1431-3946"
+    },
+    {
+      "id": 37,
+      "name": "Patti Stout",
+      "gender": "female",
+      "dateOfBirth": "2025-03-11",
+      "phone": "(81) 0409-3309"
+    },
+    {
+      "id": 38,
+      "name": "Elena Blackburn",
+      "gender": "female",
+      "dateOfBirth": "2014-10-07",
+      "phone": "(95) 9595-2047"
+    },
+    {
+      "id": 39,
+      "name": "Guadalupe Fulton",
+      "gender": "female",
+      "dateOfBirth": "2015-01-10",
+      "phone": "(82) 1536-2126"
+    },
+    {
+      "id": 40,
+      "name": "Page Freeman",
+      "gender": "male",
+      "dateOfBirth": "2017-10-12",
+      "phone": "(84) 9474-2076"
+    },
+    {
+      "id": 41,
+      "name": "Browning Ramirez",
+      "gender": "male",
+      "dateOfBirth": "2019-03-30",
+      "phone": "(95) 1413-3968"
+    },
+    {
+      "id": 42,
+      "name": "Maryanne Stevenson",
+      "gender": "female",
+      "dateOfBirth": "2021-06-03",
+      "phone": "(88) 8464-3251"
+    },
+    {
+      "id": 43,
+      "name": "Aisha Moody",
+      "gender": "female",
+      "dateOfBirth": "2020-10-28",
+      "phone": "(86) 4534-3077"
+    },
+    {
+      "id": 44,
+      "name": "Wanda Barrett",
+      "gender": "female",
+      "dateOfBirth": "2021-10-27",
+      "phone": "(96) 6580-3616"
+    },
+    {
+      "id": 45,
+      "name": "Imelda Booth",
+      "gender": "female",
+      "dateOfBirth": "2024-02-12",
+      "phone": "(83) 0481-2769"
+    },
+    {
+      "id": 46,
+      "name": "Farrell Nguyen",
+      "gender": "male",
+      "dateOfBirth": "2014-05-05",
+      "phone": "(84) 1546-2511"
+    },
+    {
+      "id": 47,
+      "name": "Castillo Byers",
+      "gender": "male",
+      "dateOfBirth": "2014-10-17",
+      "phone": "(89) 9535-2918"
+    },
+    {
+      "id": 48,
+      "name": "Taylor Brock",
+      "gender": "male",
+      "dateOfBirth": "2021-11-02",
+      "phone": "(95) 4496-2592"
+    },
+    {
+      "id": 49,
+      "name": "Flowers Kinney",
+      "gender": "male",
+      "dateOfBirth": "2016-06-18",
+      "phone": "(83) 3499-2328"
+    },
+    {
+      "id": 50,
+      "name": "Mcguire Pennington",
+      "gender": "male",
+      "dateOfBirth": "2022-10-07",
+      "phone": "(81) 9583-3602"
+    },
+    {
+      "id": 51,
+      "name": "Garcia Hardin",
+      "gender": "male",
+      "dateOfBirth": "2022-08-14",
+      "phone": "(99) 1528-3534"
+    },
+    {
+      "id": 52,
+      "name": "Molly Porter",
+      "gender": "female",
+      "dateOfBirth": "2025-02-10",
+      "phone": "(93) 1452-3130"
+    },
+    {
+      "id": 53,
+      "name": "Iris White",
+      "gender": "female",
+      "dateOfBirth": "2020-05-20",
+      "phone": "(94) 3431-3799"
+    },
+    {
+      "id": 54,
+      "name": "Tania Mullins",
+      "gender": "female",
+      "dateOfBirth": "2014-03-19",
+      "phone": "(90) 6486-3120"
+    },
+    {
+      "id": 55,
+      "name": "Reva Austin",
+      "gender": "female",
+      "dateOfBirth": "2016-08-08",
+      "phone": "(97) 0557-2680"
+    },
+    {
+      "id": 56,
+      "name": "Velez Sweeney",
+      "gender": "male",
+      "dateOfBirth": "2025-02-22",
+      "phone": "(88) 1500-3161"
+    },
+    {
+      "id": 57,
+      "name": "Mcintyre Berg",
+      "gender": "male",
+      "dateOfBirth": "2016-04-04",
+      "phone": "(99) 7572-2970"
+    },
+    {
+      "id": 58,
+      "name": "Roxie Cruz",
+      "gender": "female",
+      "dateOfBirth": "2023-12-29",
+      "phone": "(94) 5583-2759"
+    },
+    {
+      "id": 59,
+      "name": "Erika Spears",
+      "gender": "female",
+      "dateOfBirth": "2021-12-31",
+      "phone": "(84) 1478-3116"
+    },
+    {
+      "id": 60,
+      "name": "Marisol Higgins",
+      "gender": "female",
+      "dateOfBirth": "2017-04-28",
+      "phone": "(87) 8578-2720"
+    },
+    {
+      "id": 61,
+      "name": "Kristi Velazquez",
+      "gender": "female",
+      "dateOfBirth": "2024-03-26",
+      "phone": "(84) 4533-3506"
+    },
+    {
+      "id": 62,
+      "name": "Cote Mercado",
+      "gender": "male",
+      "dateOfBirth": "2018-09-11",
+      "phone": "(82) 5499-2858"
+    },
+    {
+      "id": 63,
+      "name": "Melba Knox",
+      "gender": "female",
+      "dateOfBirth": "2020-06-17",
+      "phone": "(83) 8566-2841"
+    },
+    {
+      "id": 64,
+      "name": "Best Burns",
+      "gender": "male",
+      "dateOfBirth": "2020-07-20",
+      "phone": "(98) 3558-3732"
+    },
+    {
+      "id": 65,
+      "name": "Rhonda Hyde",
+      "gender": "female",
+      "dateOfBirth": "2024-05-07",
+      "phone": "(83) 1577-3563"
+    },
+    {
+      "id": 66,
+      "name": "Maude Richmond",
+      "gender": "female",
+      "dateOfBirth": "2026-04-13",
+      "phone": "(90) 9502-2814"
+    },
+    {
+      "id": 67,
+      "name": "Charity Tyson",
+      "gender": "female",
+      "dateOfBirth": "2023-12-24",
+      "phone": "(81) 9576-2141"
+    },
+    {
+      "id": 68,
+      "name": "Reid Vang",
+      "gender": "male",
+      "dateOfBirth": "2023-10-18",
+      "phone": "(87) 1531-3977"
+    },
+    {
+      "id": 69,
+      "name": "Martin Espinoza",
+      "gender": "male",
+      "dateOfBirth": "2020-03-15",
+      "phone": "(93) 5571-3401"
+    },
+    {
+      "id": 70,
+      "name": "Brennan Hensley",
+      "gender": "male",
+      "dateOfBirth": "2018-11-22",
+      "phone": "(98) 5566-2000"
+    },
+    {
+      "id": 71,
+      "name": "Rosalie Hines",
+      "gender": "female",
+      "dateOfBirth": "2021-03-20",
+      "phone": "(85) 5499-2722"
+    },
+    {
+      "id": 72,
+      "name": "Georgia Bray",
+      "gender": "female",
+      "dateOfBirth": "2016-02-21",
+      "phone": "(81) 5589-2859"
+    },
+    {
+      "id": 73,
+      "name": "Corina Waller",
+      "gender": "female",
+      "dateOfBirth": "2018-04-20",
+      "phone": "(86) 5515-3012"
+    },
+    {
+      "id": 74,
+      "name": "Warren Mcguire",
+      "gender": "male",
+      "dateOfBirth": "2024-08-14",
+      "phone": "(95) 4439-3593"
+    },
+    {
+      "id": 75,
+      "name": "Horne Best",
+      "gender": "male",
+      "dateOfBirth": "2023-09-30",
+      "phone": "(99) 0447-3498"
+    },
+    {
+      "id": 76,
+      "name": "Magdalena Gibbs",
+      "gender": "female",
+      "dateOfBirth": "2022-12-10",
+      "phone": "(86) 7488-3546"
+    },
+    {
+      "id": 77,
+      "name": "Antoinette Pruitt",
+      "gender": "female",
+      "dateOfBirth": "2018-06-23",
+      "phone": "(81) 6412-3889"
+    },
+    {
+      "id": 78,
+      "name": "Ora Ford",
+      "gender": "female",
+      "dateOfBirth": "2018-07-19",
+      "phone": "(87) 8534-2246"
+    },
+    {
+      "id": 79,
+      "name": "Lynette Vargas",
+      "gender": "female",
+      "dateOfBirth": "2023-03-11",
+      "phone": "(87) 4507-2873"
+    },
+    {
+      "id": 80,
+      "name": "Paulette Benton",
+      "gender": "female",
+      "dateOfBirth": "2018-12-11",
+      "phone": "(99) 7549-3561"
+    },
+    {
+      "id": 81,
+      "name": "Carver Villarreal",
+      "gender": "male",
+      "dateOfBirth": "2014-11-19",
+      "phone": "(85) 2409-2235"
+    },
+    {
+      "id": 82,
+      "name": "Kim Davis",
+      "gender": "male",
+      "dateOfBirth": "2023-02-09",
+      "phone": "(81) 4477-3410"
+    },
+    {
+      "id": 83,
+      "name": "Murray Manning",
+      "gender": "male",
+      "dateOfBirth": "2024-04-21",
+      "phone": "(88) 4422-3413"
+    },
+    {
+      "id": 84,
+      "name": "Byrd Conway",
+      "gender": "male",
+      "dateOfBirth": "2020-12-26",
+      "phone": "(93) 9479-3940"
+    },
+    {
+      "id": 85,
+      "name": "Lolita Morrow",
+      "gender": "female",
+      "dateOfBirth": "2019-06-30",
+      "phone": "(87) 0593-2457"
+    },
+    {
+      "id": 86,
+      "name": "Fran Phillips",
+      "gender": "female",
+      "dateOfBirth": "2024-02-12",
+      "phone": "(97) 4525-3694"
+    },
+    {
+      "id": 87,
+      "name": "Bethany Rhodes",
+      "gender": "female",
+      "dateOfBirth": "2025-10-24",
+      "phone": "(85) 2596-2235"
+    },
+    {
+      "id": 88,
+      "name": "Deena Ware",
+      "gender": "female",
+      "dateOfBirth": "2025-06-01",
+      "phone": "(93) 6510-3500"
+    },
+    {
+      "id": 89,
+      "name": "Ellen Trevino",
+      "gender": "female",
+      "dateOfBirth": "2021-06-12",
+      "phone": "(99) 9454-3976"
+    },
+    {
+      "id": 90,
+      "name": "Evangelina Miles",
+      "gender": "female",
+      "dateOfBirth": "2026-01-18",
+      "phone": "(96) 0422-3677"
+    },
+    {
+      "id": 91,
+      "name": "Courtney Gilliam",
+      "gender": "female",
+      "dateOfBirth": "2025-05-23",
+      "phone": "(99) 7426-2474"
+    },
+    {
+      "id": 92,
+      "name": "Meyers Blankenship",
+      "gender": "male",
+      "dateOfBirth": "2019-04-03",
+      "phone": "(97) 4496-3087"
+    },
+    {
+      "id": 93,
+      "name": "Priscilla Conrad",
+      "gender": "female",
+      "dateOfBirth": "2015-08-17",
+      "phone": "(83) 6545-3095"
+    },
+    {
+      "id": 94,
+      "name": "Wilder Soto",
+      "gender": "male",
+      "dateOfBirth": "2016-05-17",
+      "phone": "(94) 5400-3421"
+    },
+    {
+      "id": 95,
+      "name": "Candice Bryan",
+      "gender": "female",
+      "dateOfBirth": "2019-10-11",
+      "phone": "(85) 1424-3186"
+    },
+    {
+      "id": 96,
+      "name": "Conway Mckinney",
+      "gender": "male",
+      "dateOfBirth": "2016-09-08",
+      "phone": "(83) 3482-2407"
+    },
+    {
+      "id": 97,
+      "name": "Rocha Erickson",
+      "gender": "male",
+      "dateOfBirth": "2019-11-01",
+      "phone": "(97) 7519-2985"
+    },
+    {
+      "id": 98,
+      "name": "Delores Carr",
+      "gender": "female",
+      "dateOfBirth": "2022-04-03",
+      "phone": "(97) 7563-2691"
+    },
+    {
+      "id": 99,
+      "name": "Morgan Lara",
+      "gender": "male",
+      "dateOfBirth": "2022-01-24",
+      "phone": "(96) 9407-3064"
+    },
+    {
+      "id": 100,
+      "name": "Holly Osborne",
+      "gender": "female",
+      "dateOfBirth": "2021-03-26",
+      "phone": "(83) 5451-2952"
     }
   ]
 }
