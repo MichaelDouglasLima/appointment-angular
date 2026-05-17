@@ -4,22 +4,22 @@
   </div>
 
   <div class="border rounded shadow-sm p-4">
-    <form [formGroup]="formGroupClient" id="formClient" #ngFormClient="ngForm" (ngSubmit)="save(ngFormClient)">
+    <form [formGroup]="clientForm" id="formClient" #ngClientForm="ngForm">
       <div class="row">
         <div class="col-8 m-auto">
 
-          <div class="mb-3" *ngId="client.id">
+          <!-- <div class="mb-3" *ngId="client.id">
             <label for="id" class="form-label">Id:</label>
             <input type="text" class="form-control" formControlName="id" id="id" readonly>
-          </div>
+          </div> -->
 
           <div class="mb-3">
             <label for="name" class="form-label">Nome: </label>
             <input type="name" class="form-control" formControlName="name" id="name" placeholder="Nome">
 
-            <div *ngIf="ngFormClient.submitted" class="text-danger text-start">
-              <small *ngIf="cfgName?.errors?.['required']"><sup>*</sup>Nome obrigatório</small>
-              <small *ngIf="cfgName?.errors?.['minlength']" class="form-text text-danger d-block">*Tamanho mínimo de 3
+            <div *ngIf="ngClientForm.submitted" class="text-danger text-start">
+              <small *ngIf="cfName?.errors?.['required']"><sup>*</sup>Nome obrigatório</small>
+              <small *ngIf="cfName?.errors?.['minlength']" class="form-text text-danger d-block">*Tamanho mínimo de 3
                 caracteres!</small>
             </div>
           </div>
@@ -30,8 +30,8 @@
                 <label for="phone" class="form-label">Telefone: </label>
                 <input type="text" class="form-control" formControlName="phone" id="phone" placeholder="Telefone">
 
-                <div *ngIf="ngFormClient.submitted" class="text-danger text-start">
-                  <small *ngIf="cfgPhone?.errors?.['required']"><sup>*</sup>Telefone obrigatório</small>
+                <div *ngIf="ngClientForm.submitted" class="text-danger text-start">
+                  <small *ngIf="cfPhone?.errors?.['required']"><sup>*</sup>Telefone obrigatório</small>
                 </div>
               </div>
             </div>
@@ -40,8 +40,8 @@
                 <label for="dateOfBirth" class="form-label">Data de Nascimento:</label>
                 <input type="date" class="form-control" formControlName="dateOfBirth" id="dateOfBirth">
 
-                <div *ngIf="ngFormClient.submitted" class="text-danger text-start">
-                  <small *ngIf="cfgDateOfBirth?.errors?.['required']"><sup>*</sup>Data de nascimento obrigatória</small>
+                <div *ngIf="ngClientForm.submitted" class="text-danger text-start">
+                  <small *ngIf="cfDateOfBirth?.errors?.['required']"><sup>*</sup>Data de nascimento obrigatória</small>
                 </div>
               </div>
             </div>
@@ -49,8 +49,9 @@
           <div class="mb-3 text-end">
             <!-- <a href="/prototype/pages/clients.html" class="btn btn-secondary me-1">Cancelar</a> -->
             <!-- <a href="/prototype/pages/clients.html" class="btn btn-primary">Salvar</a> -->
-            <button type="button" class="btn btn-secondary me-1" routerLink="/clients-table">Cancelar</button>
-            <button type="submit" class="btn btn-primary">Salvar</button>
+            <button type="button" class="btn btn-danger me-1" (click)="cancel()">Cancelar</button>
+            <button type="submit" class="btn btn-primary" [disabled]="!clientForm.dirty"
+              (click)="save()">Salvar</button>
           </div>
         </div>
       </div>
