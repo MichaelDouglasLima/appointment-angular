@@ -33,7 +33,7 @@ export class ClientFormPageComponent implements OnInit {
     this.router.paramMap.subscribe((params) => {
       let clientId = Number(params.get('id') ?? '0');
 
-      if (clientId !== 0) {
+      if (clientId) {
         this.loadClient(clientId);
         this.isEditing = true;
       }

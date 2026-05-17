@@ -28,9 +28,9 @@ export class ClientService {
     return this.http.get<Client>(url);
   }
 
-  update(client: Client): Observable<Client> {
+  update(client: Client): Observable<void> {
     let url = `${this.baseUrl}/${client.id}`;
-    return this.http.put<Client>(url, client);
+    return this.http.put<void>(url, client);
   }
 
   delete(client: Client): Observable<Client> {
