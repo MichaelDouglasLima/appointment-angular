@@ -1,44 +1,77 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Client } from 'src/app/core/models/client';
 import { ClientService } from 'src/app/core/services/client.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-client-form-page',
   templateUrl: './client-form-page.component.html',
   styleUrls: ['./client-form-page.component.css'],
 })
-export class ClientFormPageComponent {
+export class ClientFormPageComponent implements OnInit {
   clientForm: FormGroup;
+  isEditing: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
     private clientService: ClientService,
     private location: Location,
+    private router: ActivatedRoute,
   ) {
     this.clientForm = this.formBuilder.group({
-      // id: {
-      //   value: null,
-      //   disabled: true,
-      // },
       id: [''],
       name: ['', [Validators.required, Validators.minLength(3)]],
       phone: ['', [Validators.required]],
       dateOfBirth: ['', [Validators.required]],
+      gender: [''],
+    });
+  }
+
+  ngOnInit(): void {
+    this.router.paramMap.subscribe((params) => {
+      let clientId = Number(params.get('id') ?? '0');
+
+      if (clientId !== 0) {
+        this.loadClient(clientId);
+        this.isEditing = true;
+      }
+    });
+  }
+
+  loadClient(clientId: number): void {
+    this.clientService.getClientById(clientId).subscribe({
+      next: (client) => {
+        this.clientForm.setValue(client);
+      },
+      error: () => {
+        alert('Ocorreu um erro ao carregar as informações do cliente!');
+      },
     });
   }
 
   save(): void {
     if (this.clientForm.valid) {
-      this.clientService.save(this.clientForm.value).subscribe({
-        next: () => {
-          this.location.back();
-        },
-        error: () => {
-          alert('Erro ao salvar o cliente!');
-        },
-      });
+      if (this.isEditing) {
+        this.clientService.update(this.clientForm.value).subscribe({
+          next: () => {
+            this.location.back();
+          },
+          error: () => {
+            alert('Ocorreu um erro ao atualizar o cliente!');
+          },
+        });
+      } else {
+        this.clientService.save(this.clientForm.value).subscribe({
+          next: () => {
+            this.location.back();
+          },
+          error: () => {
+            alert('Erro ao salvar o cliente!');
+          },
+        });
+      }
     }
   }
 

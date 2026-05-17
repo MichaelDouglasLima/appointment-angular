@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'appointment-type', component: AppointmentTypePageComponent },
   { path: 'clients-table', component: ClientsTablePageComponent },
   { path: 'client-form', component: ClientFormPageComponent },
+  { path: 'client-form/:id', component: ClientFormPageComponent },
   { path: 'user', component: UserPageComponent },
 ];
 

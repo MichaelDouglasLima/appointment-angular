@@ -23,6 +23,16 @@ export class ClientService {
     return this.http.post<Client>(this.baseUrl, client);
   }
 
+  getClientById(id: number): Observable<Client> {
+    let url = `${this.baseUrl}/${id}`;
+    return this.http.get<Client>(url);
+  }
+
+  update(client: Client): Observable<Client> {
+    let url = `${this.baseUrl}/${client.id}`;
+    return this.http.put<Client>(url, client);
+  }
+
   delete(client: Client): Observable<Client> {
     let url = `${this.baseUrl}/${client.id}`;
     return this.http.delete<Client>(url);
