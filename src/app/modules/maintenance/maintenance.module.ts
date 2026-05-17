@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { MaintenanceRoutingModule } from './maintenance-routing.module';
@@ -20,6 +20,12 @@ import { ClientFormPageComponent } from './pages/client-form-page/client-form-pa
     ClientsTablePageComponent,
     ClientFormPageComponent,
   ],
-  imports: [CommonModule, MaintenanceRoutingModule, FormsModule, NgbModule],
+  imports: [
+    CommonModule,
+    MaintenanceRoutingModule,
+    FormsModule,
+    NgbModule,
+    ReactiveFormsModule,
+  ],
 })
 export class MaintenanceModule {}

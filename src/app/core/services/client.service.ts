@@ -19,6 +19,10 @@ export class ClientService {
     return this.http.get<Client[]>(url, { observe: 'response' });
   }
 
+  save(client: Client): Observable<Client> {
+    return this.http.post<Client>(this.baseUrl, client);
+  }
+
   delete(client: Client): Observable<Client> {
     let url = `${this.baseUrl}/${client.id}`;
     return this.http.delete<Client>(url);
