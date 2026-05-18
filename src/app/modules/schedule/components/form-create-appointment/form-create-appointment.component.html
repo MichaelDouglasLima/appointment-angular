@@ -3,10 +3,9 @@
     Escolha uma área:
 
     <select class="form-select" aria-label="Selecione uma área">
-      <option selected>Selecione uma área</option>
-      <option value="1">Clinico Geral</option>
-      <option value="2">Fisoterapeuta</option>
-      <option value="3">Cardiologista</option>
+      <option value="" selected>Selecione uma área</option>
+
+      <option *ngFor="let area of areas" value={{area.id}}>{{area.name}}</option>
     </select>
   </div>
 
