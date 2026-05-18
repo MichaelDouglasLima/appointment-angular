@@ -1,54 +1,20 @@
 <div class="container text-center">
-  <form>
-    <div class="mb-3">
-      Escolha uma área:
+  <div class="row">
+    <div class="display-6 my-2">Fazer um agendamento:</div>
 
-      <select class="form-select" aria-label="Selecione uma área">
-        <option selected>Selecione uma área</option>
-        <option value="1">Clinico Geral</option>
-        <option value="2">Fisoterapeuta</option>
-        <option value="3">Cardiologista</option>
-      </select>
+    <div class="col-6 border rounded shadow-sm p-4">
+      <app-form-create-appointment></app-form-create-appointment>
     </div>
 
-    <div class="mb-3">
-      Escolha um profissional:
-
-      <select class="form-select" aria-label="Selecione um profissional">
-        <option selected>Selecione um profissional</option>
-        <option value="1">Dr. Fernando Souza</option>
-        <option value="2">Dra. Maria Lucia</option>
-        <option value="3">Dr. Marco Pereira</option>
-      </select>
+    <div class="col-6 border rounded shadow-sm p-4">
+      <div id="calendar"></div>
+      <div id="time"></div>
     </div>
 
-    <div class="mb-3">
-      Selecione um tipo:
-
-      <select class="form-select" aria-label="Tipo de atendimento">
-        <option selected>Tipo de atendimento</option>
-        <option value="1">Particular</option>
-        <option value="2">Convênio Dr. Saúde</option>
-        <option value="3">Convênio Prefeitura</option>
-      </select>
+    <div class="d-grid gap-2 mt-2 p-5">
+      <button class="btn btn-primary shadow-sm" type="button" data-bs-toggle="modal"
+        data-bs-target="#confirmModal">Agendar</button>
     </div>
+  </div>
 
-    <div class="mb-3">
-      Crie ou digite o nome do cliente:
-
-      <div class="input-group">
-        <input class="form-control" type="text" value="" aria-label="input name">
-      </div>
-
-      <div class="text-start">
-        <small>Confirme o telefone do cliente: (15) 99975-1539</small>
-      </div>
-    </div>
-
-    <div class="mb-3">
-      Comentários:
-
-      <textarea class="form-control" id="floatingTextarea"></textarea>
-    </div>
-  </form>
 </div>
