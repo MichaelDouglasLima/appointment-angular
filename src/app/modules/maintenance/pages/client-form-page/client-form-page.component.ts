@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Client } from 'src/app/core/models/client';
 import { ClientService } from 'src/app/core/services/client.service';
 import { ActivatedRoute } from '@angular/router';
+import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
   selector: 'app-client-form-page',
@@ -19,6 +20,7 @@ export class ClientFormPageComponent implements OnInit {
     private clientService: ClientService,
     private location: Location,
     private router: ActivatedRoute,
+    private toastService: ToastService,
   ) {
     this.clientForm = this.formBuilder.group({
       id: [''],
@@ -56,40 +58,34 @@ export class ClientFormPageComponent implements OnInit {
       if (this.isEditing) {
         this.clientService.update(this.clientForm.value).subscribe({
           next: () => {
+            this.toastService.show('Cliente atualizado com sucesso!', {
+              classname: 'bg-success text-light',
+            });
             this.location.back();
           },
           error: () => {
-            alert('Ocorreu um erro ao atualizar o cliente!');
+            this.toastService.show('Erro ao salvar um cliente!', {
+              classname: 'bg-danger text-light',
+            });
           },
         });
       } else {
         this.clientService.save(this.clientForm.value).subscribe({
           next: () => {
+            this.toastService.show('Cliente salvo com sucesso!', {
+              classname: 'bg-success text-light',
+            });
             this.location.back();
           },
           error: () => {
-            alert('Erro ao salvar o cliente!');
+            this.toastService.show('Erro ao criar um cliente!', {
+              classname: 'bg-danger text-light',
+            });
           },
         });
       }
     }
   }
-
-  // save(ngFormClient: any) {
-  //   Object.assign(this.client, this.clientForm.value);
-
-  //   if (this.clientForm.valid) {
-  //     this.clientService.save(this.client).subscribe({
-  //       next: () => {
-  //         alert('Usuário cadastrado com sucesso!');
-  //         ngFormClient.resetForm();
-  //       },
-  //       error: () => {
-  //         alert('Ocorreu um erro ao salvar o usuário!');
-  //       },
-  //     });
-  //   }
-  // }
 
   cancel(): void {
     this.location.back();

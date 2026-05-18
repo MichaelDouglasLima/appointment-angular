@@ -4,10 +4,11 @@ import { HeaderComponent } from './components/header/header.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RouterModule } from '@angular/router';
+import { ToastComponent } from './components/toast/toast.component';
 
 @NgModule({
-  declarations: [HeaderComponent],
+  declarations: [HeaderComponent, ToastComponent],
   imports: [CommonModule, NgbModule, AppRoutingModule, RouterModule],
-  exports: [HeaderComponent],
+  exports: [HeaderComponent, ToastComponent],
 })
 export class SharedModule {}

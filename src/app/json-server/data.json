@@ -701,12 +701,6 @@
       "phone": "(83) 5451-2952"
     },
     {
-      "name": "BBBBB",
-      "phone": "(15) 98776-3917",
-      "dateOfBirth": "2026-05-02",
-      "id": 102
-    },
-    {
       "name": "CCCCC",
       "phone": "(15) 98776-3917",
       "dateOfBirth": "2026-05-06",
@@ -725,12 +719,6 @@
       "id": 105
     },
     {
-      "name": "eeeee",
-      "phone": "(15) 98776-3917",
-      "dateOfBirth": "2026-05-04",
-      "id": 106
-    },
-    {
       "name": null,
       "phone": null,
       "dateOfBirth": null,
@@ -747,24 +735,6 @@
       "phone": null,
       "dateOfBirth": null,
       "id": 109
-    },
-    {
-      "name": "aaaa",
-      "phone": "(15) 98776-3917",
-      "dateOfBirth": "2026-05-02",
-      "id": 110
-    },
-    {
-      "name": "asasasas",
-      "phone": "6546546",
-      "dateOfBirth": "2026-05-07",
-      "id": 111
-    },
-    {
-      "name": "sdfsdfdsdf",
-      "phone": "sdfsd",
-      "dateOfBirth": "2026-05-13",
-      "id": 112
     }
   ]
 }
