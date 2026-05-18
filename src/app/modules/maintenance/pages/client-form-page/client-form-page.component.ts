@@ -87,22 +87,6 @@ export class ClientFormPageComponent implements OnInit {
     }
   }
 
-  // save(ngFormClient: any) {
-  //   Object.assign(this.client, this.clientForm.value);
-
-  //   if (this.clientForm.valid) {
-  //     this.clientService.save(this.client).subscribe({
-  //       next: () => {
-  //         alert('Usuário cadastrado com sucesso!');
-  //         ngFormClient.resetForm();
-  //       },
-  //       error: () => {
-  //         alert('Ocorreu um erro ao salvar o usuário!');
-  //       },
-  //     });
-  //   }
-  // }
-
   cancel(): void {
     this.location.back();
   }
