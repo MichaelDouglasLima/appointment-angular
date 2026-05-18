@@ -736,5 +736,47 @@
       "dateOfBirth": null,
       "id": 109
     }
+  ],
+  "areas": [
+    {
+      "id": 1,
+      "name": "Clinico Geral"
+    },
+    {
+      "id": 2,
+      "name": "Fisoterapeuta"
+    },
+    {
+      "id": 3,
+      "name": "Cardiologista"
+    }
+  ],
+  "professionals": [
+    {
+      "id": 1,
+      "name": "Dr. Fernando Souza"
+    },
+    {
+      "id": 2,
+      "name": "Dra. Maria Lucia"
+    },
+    {
+      "id": 3,
+      "name": "Dr. Marco Pereira"
+    }
+  ],
+  "appointment-types": [
+    {
+      "id": 1,
+      "name": "Particular"
+    },
+    {
+      "id": 2,
+      "name": "Convênio Dr. Saúde"
+    },
+    {
+      "id": 3,
+      "name": "Convênio Prefeitura"
+    }
   ]
 }
