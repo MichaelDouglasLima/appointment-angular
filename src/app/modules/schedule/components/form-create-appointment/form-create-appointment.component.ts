@@ -28,6 +28,7 @@ export class FormCreateAppointmentComponent {
     this.appointmentForm = this.formBuilder.group({
       area: ['', Validators.required],
       professional: ['', Validators.required],
+      appointmentType: ['', Validators.required],
     });
   }
 
