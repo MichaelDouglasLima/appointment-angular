@@ -756,19 +756,22 @@
       "id": 1,
       "name": "Dr. Fernando Souza",
       "phone": "(15) 98776-3917",
-      "active": true
+      "active": true,
+      "areaId": 1
     },
     {
       "id": 2,
       "name": "Dra. Maria Lucia",
       "phone": "(15) 98776-3917",
-      "active": true
+      "active": true,
+      "areaId": 2
     },
     {
       "id": 3,
       "name": "Dr. Marco Pereira",
       "phone": "(15) 98776-3917",
-      "active": false
+      "active": false,
+      "areaId": 2
     }
   ],
   "appointment-types": [

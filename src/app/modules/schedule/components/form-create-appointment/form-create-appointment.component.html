@@ -1,22 +1,23 @@
-<form>
+<form [formGroup]="appointmentForm">
   <div class="mb-3">
     Escolha uma área:
 
-    <select class="form-select" aria-label="Selecione uma área">
+    <select class="form-select" aria-label="Selecione uma área" formControlName="area" (change)="onAreaChange()">
       <option value="" selected>Selecione uma área</option>
 
-      <option *ngFor="let area of areas" value={{area.id}}>{{area.name}}</option>
+      <option *ngFor="let area of areas" [ngValue]="area">{{area.name}}</option>
     </select>
   </div>
 
   <div class="mb-3">
     Escolha um profissional:
 
-    <select class="form-select" aria-label="Selecione um profissional">
-      <option selected>Selecione um profissional</option>
-      <option value="1">Dr. Fernando Souza</option>
-      <option value="2">Dra. Maria Lucia</option>
-      <option value="3">Dr. Marco Pereira</option>
+    <select class="form-select" aria-label="Selecione um profissional" formControlName="professional">
+      <option value="" selected>Selecione um profissional</option>
+
+      <option *ngFor="let professional of professionals" [ngValue]="professional">
+        {{professional.name}}
+      </option>
     </select>
   </div>
 
@@ -24,10 +25,11 @@
     Selecione um tipo:
 
     <select class="form-select" aria-label="Tipo de atendimento">
-      <option selected>Tipo de atendimento</option>
-      <option value="1">Particular</option>
-      <option value="2">Convênio Dr. Saúde</option>
-      <option value="3">Convênio Prefeitura</option>
+      <option value="" selected>Selecione o tipo de atendimento</option>
+
+      <option *ngFor="let appointmentType of appointmentTypes" [ngValue]="appointmentType">
+        {{appointmentType.type}}
+      </option>
     </select>
   </div>
 

@@ -8,6 +8,7 @@ import { CancelAppointmentPageComponent } from './pages/cancel-appointment-page/
 import { ClientHistoryPageComponent } from './pages/client-history-page/client-history-page.component';
 import { ProfessionalWorkdaysPageComponent } from './pages/professional-workdays-page/professional-workdays-page.component';
 import { FormCreateAppointmentComponent } from './components/form-create-appointment/form-create-appointment.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,6 @@ import { FormCreateAppointmentComponent } from './components/form-create-appoint
     ProfessionalWorkdaysPageComponent,
     FormCreateAppointmentComponent,
   ],
-  imports: [CommonModule, ScheduleRoutingModule],
+  imports: [CommonModule, ScheduleRoutingModule, ReactiveFormsModule],
 })
 export class ScheduleModule {}
