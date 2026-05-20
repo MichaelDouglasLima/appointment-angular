@@ -27,10 +27,10 @@ export class FormCreateAppointmentComponent {
   @Output()
   selectedAreaEvent = new EventEmitter<Area>();
 
-  appointmentForm: FormGroup;
+  formAppointment: FormGroup;
 
   constructor(private formBuilder: FormBuilder) {
-    this.appointmentForm = this.formBuilder.group({
+    this.formAppointment = this.formBuilder.group({
       area: ['', Validators.required],
       professional: ['', Validators.required],
       appointmentType: ['', Validators.required],
@@ -44,6 +44,10 @@ export class FormCreateAppointmentComponent {
   };
 
   onAreaChange() {
-    this.selectedAreaEvent.emit(this.appointmentForm.value['area']);
+    this.selectedAreaEvent.emit(this.formAppointment.value['area']);
+  }
+
+  get faClient() {
+    return this.formAppointment.value['client'];
   }
 }
