@@ -10,6 +10,7 @@ import { CancelAppointmentPageComponent } from './pages/cancel-appointment-page/
 import { ClientHistoryPageComponent } from './pages/client-history-page/client-history-page.component';
 import { ProfessionalWorkdaysPageComponent } from './pages/professional-workdays-page/professional-workdays-page.component';
 import { FormCreateAppointmentComponent } from './components/form-create-appointment/form-create-appointment.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FormCreateAppointmentComponent } from './components/form-create-appoint
     ClientHistoryPageComponent,
     ProfessionalWorkdaysPageComponent,
     FormCreateAppointmentComponent,
+    CalendarComponent,
   ],
   imports: [
     CommonModule,
