@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import {
   debounceTime,
   distinctUntilChanged,
@@ -14,6 +14,7 @@ import { AppointmentTypeService } from 'src/app/core/services/appointment-type.s
 import { AreaService } from 'src/app/core/services/area.service';
 import { ClientService } from 'src/app/core/services/client.service';
 import { ToastService } from 'src/app/core/services/toast.service';
+import { FormCreateAppointmentComponent } from '../../components/form-create-appointment/form-create-appointment.component';
 
 @Component({
   selector: 'app-create-appointment-page',
@@ -24,6 +25,9 @@ export class CreateAppointmentPageComponent implements OnInit {
   areas: Area[] = [];
   professionalsByArea: Professional[] = [];
   appointmentTypes: AppointmentType[] = [];
+
+  @ViewChild(FormCreateAppointmentComponent)
+  private formCreateAppointmentComponent!: FormCreateAppointmentComponent;
 
   constructor(
     private areaService: AreaService,
@@ -85,5 +89,12 @@ export class CreateAppointmentPageComponent implements OnInit {
         });
       },
     });
+  }
+
+  createAppointment() {
+    this.formCreateAppointmentComponent.submitted = true;
+    alert(
+      JSON.stringify(this.formCreateAppointmentComponent.appointmentForm.value),
+    );
   }
 }

@@ -27,14 +27,23 @@ export class FormCreateAppointmentComponent {
   @Output()
   selectedAreaEvent = new EventEmitter<Area>();
 
-  formAppointment: FormGroup;
+  appointmentForm: FormGroup;
+
+  submitted: boolean = false;
 
   constructor(private formBuilder: FormBuilder) {
-    this.formAppointment = this.formBuilder.group({
+    this.appointmentForm = this.formBuilder.group({
       area: ['', Validators.required],
-      professional: ['', Validators.required],
+      professional: [
+        {
+          value: '',
+          disabled: true,
+        },
+        Validators.required,
+      ],
       appointmentType: ['', Validators.required],
       client: ['', Validators.required],
+      comments: [''],
     });
   }
 
@@ -44,10 +53,27 @@ export class FormCreateAppointmentComponent {
   };
 
   onAreaChange() {
-    this.selectedAreaEvent.emit(this.formAppointment.value['area']);
+    this.selectedAreaEvent.emit(this.appointmentForm.value['area']);
+    this.appointmentForm.controls['professional'].enable();
   }
 
-  get faClient() {
-    return this.formAppointment.value['client'];
+  getSelectedClient(): Client {
+    return this.appointmentForm.controls['client'].value;
+  }
+
+  get afArea() {
+    return this.appointmentForm.get('area');
+  }
+
+  get afProfessional() {
+    return this.appointmentForm.get('professional');
+  }
+
+  get afAppointmentType() {
+    return this.appointmentForm.get('appointmentType');
+  }
+
+  get afClient() {
+    return this.appointmentForm.get('client');
   }
 }
