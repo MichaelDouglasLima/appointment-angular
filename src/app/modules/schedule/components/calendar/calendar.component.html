@@ -1,17 +1,17 @@
 <div class="calendar">
   <div class="row">
     <!-- Voltar -->
-    <div class="col previous-month">
+    <div class="col previous-month" (click)="onPreviousMonth()">
       <img src="/assets/svg/caret-left-fill.svg" width="20" height="20" alt="previous">
     </div>
 
     <!-- Mês e Ano Atual -->
     <div class="col month-year">
-      {{calendarMonth | date: 'MMMM': 'pt-br' }}/2026
+      {{calendarMonth | date: 'MMMM': 'pt-br' | titlecase}}/{{calendarMonth.getFullYear()}}
     </div>
 
     <!-- Avançar -->
-    <div class="col next-month">
+    <div class="col next-month" (click)="onNextMonth()">
       <img src="assets/svg/caret-right-fill.svg" alt="next">
     </div>
   </div>
