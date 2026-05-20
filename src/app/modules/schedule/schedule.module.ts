@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ReactiveFormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { ScheduleRoutingModule } from './schedule-routing.module';
 import { TodayAppointmentsPageComponent } from './pages/today-appointments-page/today-appointments-page.component';
@@ -8,7 +10,6 @@ import { CancelAppointmentPageComponent } from './pages/cancel-appointment-page/
 import { ClientHistoryPageComponent } from './pages/client-history-page/client-history-page.component';
 import { ProfessionalWorkdaysPageComponent } from './pages/professional-workdays-page/professional-workdays-page.component';
 import { FormCreateAppointmentComponent } from './components/form-create-appointment/form-create-appointment.component';
-import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfessionalWorkdaysPageComponent,
     FormCreateAppointmentComponent,
   ],
-  imports: [CommonModule, ScheduleRoutingModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ScheduleRoutingModule,
+    ReactiveFormsModule,
+    NgbModule,
+  ],
 })
 export class ScheduleModule {}

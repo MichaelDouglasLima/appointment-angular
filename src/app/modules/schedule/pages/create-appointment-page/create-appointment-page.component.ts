@@ -1,9 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import {
+  debounceTime,
+  distinctUntilChanged,
+  filter,
+  Observable,
+  switchMap,
+} from 'rxjs';
 import { AppointmentType } from 'src/app/core/models/appointment-type';
 import { Area } from 'src/app/core/models/area';
+import { Client } from 'src/app/core/models/client';
 import { Professional } from 'src/app/core/models/professional';
 import { AppointmentTypeService } from 'src/app/core/services/appointment-type.service';
 import { AreaService } from 'src/app/core/services/area.service';
+import { ClientService } from 'src/app/core/services/client.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
@@ -19,6 +28,7 @@ export class CreateAppointmentPageComponent implements OnInit {
   constructor(
     private areaService: AreaService,
     private appointmentTypeService: AppointmentTypeService,
+    private clientService: ClientService,
     private toastService: ToastService,
   ) {}
 
@@ -26,6 +36,17 @@ export class CreateAppointmentPageComponent implements OnInit {
     this.loadAreas();
     this.loadAppointmentType();
   }
+
+  searchClients = (text: Observable<string>): Observable<Client[]> => {
+    return text.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      filter((term) => term.length >= 2),
+      switchMap((term) =>
+        this.clientService.getClientsWithNameContaining(term),
+      ),
+    );
+  };
 
   loadAreas() {
     this.areaService.getAreas().subscribe({
@@ -59,7 +80,7 @@ export class CreateAppointmentPageComponent implements OnInit {
         this.professionalsByArea = professionals;
       },
       error: () => {
-        this.toastService.show('Erro ao carregar os  profissionais por área!', {
+        this.toastService.show('Erro ao carregar os profissionais por área!', {
           classname: 'bg-danger text-light',
         });
       },

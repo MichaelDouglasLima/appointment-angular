@@ -11,12 +11,17 @@ export class ClientService {
 
   constructor(private http: HttpClient) {}
 
-  getClients(
+  getClientsPage(
     clientNameFilter: string,
     page: number,
   ): Observable<HttpResponse<Client[]>> {
-    let url = `${this.baseUrl}?name_like=${clientNameFilter}&_page=${page}&_sort=name`;
+    let url = `${this.baseUrl}?name_like=${clientNameFilter}&_page=${page}&_limit=10&_sort=name`;
     return this.http.get<Client[]>(url, { observe: 'response' });
+  }
+
+  getClientsWithNameContaining(clientNameFilter: string): Observable<Client[]> {
+    let url = `${this.baseUrl}?name_like=${clientNameFilter}&_sort=name&_limit=10`;
+    return this.http.get<Client[]>(url);
   }
 
   save(client: Client): Observable<Client> {

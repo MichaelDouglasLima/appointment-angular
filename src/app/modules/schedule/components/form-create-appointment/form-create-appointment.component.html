@@ -37,7 +37,8 @@
     Crie ou digite o nome do cliente:
 
     <div class="input-group">
-      <input class="form-control" type="text" value="" aria-label="input name">
+      <input id="typeahead-basic" type="text" class="form-control" formControlName="client"
+        [resultFormatter]="formatter" [inputFormatter]="formatter" [ngbTypeahead]="searchClients" />
     </div>
 
     <div class="text-start">
