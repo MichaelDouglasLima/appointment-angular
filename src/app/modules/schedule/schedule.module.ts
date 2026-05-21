@@ -12,6 +12,7 @@ import { ProfessionalWorkdaysPageComponent } from './pages/professional-workdays
 import { FormCreateAppointmentComponent } from './components/form-create-appointment/form-create-appointment.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { TimeComponent } from './components/time/time.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { TimeComponent } from './components/time/time.component';
     ScheduleRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    SharedModule,
   ],
 })
 export class ScheduleModule {}
