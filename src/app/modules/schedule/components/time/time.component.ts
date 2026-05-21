@@ -1,4 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  OnChanges,
+  OnInit,
+  Output,
+  SimpleChanges,
+} from '@angular/core';
 import { Time } from './models/time';
 
 @Component({
@@ -6,11 +13,19 @@ import { Time } from './models/time';
   templateUrl: './time.component.html',
   styleUrls: ['./time.component.css'],
 })
-export class TimeComponent implements OnInit {
+export class TimeComponent implements OnInit, OnChanges {
   times: Time[] = [];
+  selectedTime: Time = {} as Time;
+
+  @Output()
+  selectedTimeEvent = new EventEmitter<Time>();
 
   ngOnInit(): void {
     this.resetTimes();
+  }
+
+  ngOnChanges(): void {
+    this.selectedTime = {} as Time;
   }
 
   resetTimes() {
@@ -37,5 +52,10 @@ export class TimeComponent implements OnInit {
       { startTime: '17:00:00', endTime: '17:30:00', available: false },
       { startTime: '17:30:00', endTime: '18:00:00', available: false },
     ];
+  }
+
+  onSelectedTime(time: Time) {
+    this.selectedTime = time;
+    this.selectedTimeEvent.emit(this.selectedTime);
   }
 }

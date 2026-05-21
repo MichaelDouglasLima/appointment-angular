@@ -28,9 +28,11 @@
       class="col time"
       *ngFor="let time of times.slice(row * 8, (row + 1) * 8)"
       [ngClass]="{
-        'time-off': !time.available && time.startTime,
-        'time-available': time.available && time.startTime,
+        'time-off': !time.available,
+        'time-available': time.available,
+        'time-selected': time.startTime == selectedTime.startTime,
       }"
+      (click)="time.available && onSelectedTime(time)"
     >
       {{ time.startTime | time }}
     </div>

@@ -21,7 +21,7 @@
         (selectedDateEvent)="onSelectedDate($event)"
       ></app-calendar>
 
-      <app-time></app-time>
+      <app-time (selectedTimeEvent)="onSelectedTime($event)"></app-time>
     </div>
 
     <div class="d-grid gap-2 mt-2 p-5">

@@ -16,6 +16,7 @@ import { ClientService } from 'src/app/core/services/client.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { FormCreateAppointmentComponent } from '../../components/form-create-appointment/form-create-appointment.component';
 import { ProfessionalService } from 'src/app/core/services/professional.service';
+import { Time } from '../../components/time/models/time';
 
 @Component({
   selector: 'app-create-appointment-page',
@@ -28,7 +29,7 @@ export class CreateAppointmentPageComponent implements OnInit {
   professionalsByArea: Professional[] = [];
   selectedProfessional: Professional = {} as Professional;
 
-  //Calendar Component
+  // Calendar Component
   calendarMonth: Date = new Date();
   availableDays: number[] = [];
 
@@ -56,6 +57,10 @@ export class CreateAppointmentPageComponent implements OnInit {
 
   onSelectedDate(date: Date) {
     alert(date);
+  }
+
+  onSelectedTime(time: Time) {
+    alert(JSON.stringify(time));
   }
 
   onChangedMonth(date: Date) {
