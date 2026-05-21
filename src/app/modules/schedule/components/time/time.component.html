@@ -1,7 +1,7 @@
 <div class="text-center mt-4">
   Horários Disponíveis:
 
-  <div class="row mt-3">
+  <!-- <div class="row mt-3">
     <div class="col time time-off">08:00</div>
     <div class="col time time-off">08:30</div>
     <div class="col time time-available">09:00</div>
@@ -21,5 +21,11 @@
     <div class="col time time-off">16:30</div>
     <div class="col time time-off">17:00</div>
     <div class="col time time-available">17:30</div>
+  </div> -->
+
+  <div class="row mt-3">
+    <div class="col time time-off" *ngFor="let time of times">
+      {{ time.startTime }}
+    </div>
   </div>
 </div>
