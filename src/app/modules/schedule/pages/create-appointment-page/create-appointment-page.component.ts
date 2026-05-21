@@ -15,6 +15,7 @@ import { AreaService } from 'src/app/core/services/area.service';
 import { ClientService } from 'src/app/core/services/client.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { FormCreateAppointmentComponent } from '../../components/form-create-appointment/form-create-appointment.component';
+import { ProfessionalService } from 'src/app/core/services/professional.service';
 
 @Component({
   selector: 'app-create-appointment-page',
@@ -23,8 +24,13 @@ import { FormCreateAppointmentComponent } from '../../components/form-create-app
 })
 export class CreateAppointmentPageComponent implements OnInit {
   areas: Area[] = [];
-  professionalsByArea: Professional[] = [];
   appointmentTypes: AppointmentType[] = [];
+  professionalsByArea: Professional[] = [];
+  selectedProfessional: Professional = {} as Professional;
+
+  //Calendar Component
+  calendarMonth: Date = new Date();
+  availableDays: number[] = [];
 
   @ViewChild(FormCreateAppointmentComponent)
   private formCreateAppointmentComponent!: FormCreateAppointmentComponent;
@@ -33,12 +39,28 @@ export class CreateAppointmentPageComponent implements OnInit {
     private areaService: AreaService,
     private appointmentTypeService: AppointmentTypeService,
     private clientService: ClientService,
+    private professionalService: ProfessionalService,
     private toastService: ToastService,
   ) {}
 
   ngOnInit(): void {
     this.loadAreas();
     this.loadAppointmentType();
+  }
+
+  onSelectedProfessional(professional: Professional) {
+    this.selectedProfessional = professional;
+    this.calendarMonth = new Date();
+    this.loadAvailableDays();
+  }
+
+  onSelectedDate(date: Date) {
+    alert(date);
+  }
+
+  onChangedMonth(date: Date) {
+    this.calendarMonth = date;
+    this.loadAvailableDays();
   }
 
   searchClients = (text: Observable<string>): Observable<Client[]> => {
@@ -51,6 +73,21 @@ export class CreateAppointmentPageComponent implements OnInit {
       ),
     );
   };
+
+  loadAvailableDays() {
+    this.professionalService
+      .getAvailableDays(this.selectedProfessional, this.calendarMonth)
+      .subscribe({
+        next: (days) => {
+          this.availableDays = days;
+        },
+        error: () => {
+          this.toastService.show('Erro ao carregar os dias disponíveis', {
+            classname: 'bg-danger text-light',
+          });
+        },
+      });
+  }
 
   loadAreas() {
     this.areaService.getAreas().subscribe({

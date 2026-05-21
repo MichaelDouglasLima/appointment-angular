@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Professional } from '../models/professional';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +11,23 @@ export class ProfessionalService {
 
   constructor(private http: HttpClient) {}
 
-  getProfessionals(): Observable<Professional[]> {
-    return this.http.get<Professional[]>(this.baseUrl);
+  getAvailableDays(
+    professional: Professional,
+    calendar: Date,
+  ): Observable<number[]> {
+    let month = calendar.getMonth() + 1;
+    let year = calendar.getFullYear();
+    let url = `${this.baseUrl}/${professional.id}/availability-days?year=${year}&month=${month}`;
+
+    // TODO: Replace this when backend is available
+    // return this.http.get<number[]>(url);
+
+    return of([
+      Math.floor(Math.random() * 20) + 1,
+      Math.floor(Math.random() * 20) + 1,
+      Math.floor(Math.random() * 20) + 1,
+      Math.floor(Math.random() * 20) + 1,
+      Math.floor(Math.random() * 20) + 1,
+    ]);
   }
 }
