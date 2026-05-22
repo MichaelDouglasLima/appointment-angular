@@ -17,8 +17,8 @@ import { ToastService } from 'src/app/core/services/toast.service';
 import { FormCreateAppointmentComponent } from '../../components/form-create-appointment/form-create-appointment.component';
 import { ProfessionalService } from 'src/app/core/services/professional.service';
 import { Time } from '../../components/time/models/time';
-import { TimeService } from 'src/app/core/services/time.service';
 import { JsonPipe } from '@angular/common';
+import { Appointment } from 'src/app/core/models/appointment';
 
 @Component({
   selector: 'app-create-appointment-page',
@@ -30,14 +30,15 @@ export class CreateAppointmentPageComponent implements OnInit {
   appointmentTypes: AppointmentType[] = [];
   professionalsByArea: Professional[] = [];
   selectedProfessional: Professional = {} as Professional;
-  selectedTime: Time = {} as Time;
 
   // Calendar Component
   calendarMonth: Date = new Date();
   availableDays: number[] = [];
+  selectedDate!: Date;
 
   // Time Component
-  times: Time[] = [];
+  availableTimes: Time[] = [];
+  selectedTime!: Time;
 
   @ViewChild(FormCreateAppointmentComponent)
   private formCreateAppointmentComponent!: FormCreateAppointmentComponent;
@@ -47,7 +48,6 @@ export class CreateAppointmentPageComponent implements OnInit {
     private appointmentTypeService: AppointmentTypeService,
     private clientService: ClientService,
     private professionalService: ProfessionalService,
-    private timeService: TimeService,
     private toastService: ToastService,
     private json: JsonPipe,
   ) {}
@@ -84,6 +84,7 @@ export class CreateAppointmentPageComponent implements OnInit {
 
   onSelectedDate(date: Date) {
     // alert(date);
+    this.selectedDate = date;
     this.loadAvailableTimes();
   }
 
@@ -153,30 +154,39 @@ export class CreateAppointmentPageComponent implements OnInit {
 
   loadAvailableTimes() {
     this.selectedTime = {} as Time;
-    this.times = [];
-    this.timeService.getTimes().subscribe({
-      next: (times) => {
-        this.times = times;
-      },
-      error: () => {
-        this.toastService.show('Erro ao carregar os horários disponíveis!', {
-          classname: 'bg-danger text-light',
-        });
-      },
-    });
+    this.availableTimes = [];
+    this.professionalService
+      .getAvailableTimes(this.selectedProfessional, this.selectedDate)
+      .subscribe({
+        next: (times) => {
+          this.availableTimes = times;
+        },
+        error: () => {
+          this.toastService.show('Erro ao carregar os horários disponíveis!', {
+            classname: 'bg-danger text-light',
+          });
+        },
+      });
   }
 
   resetTimes() {
     this.selectedTime = {} as Time;
-    this.times = [];
+    this.availableTimes = [];
   }
 
   createAppointment() {
     this.formCreateAppointmentComponent.submitted = true;
-    alert(
-      this.json.transform(
-        this.formCreateAppointmentComponent.appointmentForm.value,
-      ),
-    );
+
+    let appointment: Appointment = {} as Appointment;
+
+    appointment = {
+      ...this.formCreateAppointmentComponent.appointmentForm.value,
+    };
+
+    appointment.startTime = this.selectedTime.startTime;
+    appointment.endTime = this.selectedTime.endTime;
+    appointment.date = this.selectedDate;
+
+    alert(this.json.transform(appointment));
   }
 }
