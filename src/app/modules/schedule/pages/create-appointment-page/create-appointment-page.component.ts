@@ -35,12 +35,12 @@ export class CreateAppointmentPageComponent implements OnInit {
   calendarMonth: Date = new Date();
   availableDays: number[] = [];
   selectedDate!: Date;
-  calendarError: string = '*Selecione uma data!';
+  calendarError: string = '';
 
   // Time Component
   availableTimes: Time[] = [];
   selectedTime!: Time;
-  timeError: string = '*Selecione um horário!';
+  timeError: string = '';
 
   @ViewChild(FormCreateAppointmentComponent)
   private formCreateAppointmentComponent!: FormCreateAppointmentComponent;
@@ -88,11 +88,14 @@ export class CreateAppointmentPageComponent implements OnInit {
     // alert(date);
     this.selectedDate = date;
     this.loadAvailableTimes();
+    this.calendarError = '';
+    this.timeError = '';
   }
 
   onSelectedTime(time: Time) {
     //alert(JSON.stringify(time));
     this.selectedTime = time;
+    this.timeError = '';
   }
 
   onChangedMonth(date: Date) {
@@ -178,6 +181,8 @@ export class CreateAppointmentPageComponent implements OnInit {
 
   createAppointment() {
     this.formCreateAppointmentComponent.submitted = true;
+    this.calendarError = this.selectedDate ? '' : '*Selecione uma data!';
+    this.timeError = this.timeError ? '' : '*Selecione um horário!';
 
     let appointment: Appointment = {} as Appointment;
 
@@ -185,8 +190,8 @@ export class CreateAppointmentPageComponent implements OnInit {
       ...this.formCreateAppointmentComponent.appointmentForm.value,
     };
 
-    appointment.startTime = this.selectedTime.startTime;
-    appointment.endTime = this.selectedTime.endTime;
+    appointment.startTime = this.selectedTime?.startTime;
+    appointment.endTime = this.selectedTime?.endTime;
     appointment.date = this.selectedDate;
 
     alert(this.json.transform(appointment));
