@@ -17,12 +17,14 @@
       <app-calendar
         [calendarMonth]="calendarMonth"
         [availableDays]="availableDays"
+        [error]="calendarError"
         (changedMonthEvent)="onChangedMonth($event)"
         (selectedDateEvent)="onSelectedDate($event)"
       ></app-calendar>
 
       <app-time
         [times]="availableTimes"
+        [error]="timeError"
         (selectedTimeEvent)="onSelectedTime($event)"
       ></app-time>
     </div>

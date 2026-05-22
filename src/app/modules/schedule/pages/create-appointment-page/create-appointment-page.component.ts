@@ -35,10 +35,12 @@ export class CreateAppointmentPageComponent implements OnInit {
   calendarMonth: Date = new Date();
   availableDays: number[] = [];
   selectedDate!: Date;
+  calendarError: string = '*Selecione uma data!';
 
   // Time Component
   availableTimes: Time[] = [];
   selectedTime!: Time;
+  timeError: string = '*Selecione um horário!';
 
   @ViewChild(FormCreateAppointmentComponent)
   private formCreateAppointmentComponent!: FormCreateAppointmentComponent;
