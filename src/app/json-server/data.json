@@ -772,6 +772,13 @@
       "phone": "(15) 98776-3917",
       "active": false,
       "areaId": 2
+    },
+    {
+      "id": 4,
+      "name": "Dr. Michael Silva",
+      "phone": "(15) 98776-3917",
+      "active": true,
+      "areaId": 1
     }
   ],
   "appointment-types": [

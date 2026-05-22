@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, JsonPipe } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -11,6 +11,8 @@ import { ClientHistoryPageComponent } from './pages/client-history-page/client-h
 import { ProfessionalWorkdaysPageComponent } from './pages/professional-workdays-page/professional-workdays-page.component';
 import { FormCreateAppointmentComponent } from './components/form-create-appointment/form-create-appointment.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
+import { TimeComponent } from './components/time/time.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -21,12 +23,15 @@ import { CalendarComponent } from './components/calendar/calendar.component';
     ProfessionalWorkdaysPageComponent,
     FormCreateAppointmentComponent,
     CalendarComponent,
+    TimeComponent,
   ],
   imports: [
     CommonModule,
     ScheduleRoutingModule,
     ReactiveFormsModule,
     NgbModule,
+    SharedModule,
   ],
+  providers: [JsonPipe],
 })
 export class ScheduleModule {}

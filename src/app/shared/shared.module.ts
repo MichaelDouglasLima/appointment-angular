@@ -6,10 +6,11 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
 import { RouterModule } from '@angular/router';
 import { ToastComponent } from './components/toast/toast.component';
 import { ModalComponent } from './components/modal/modal.component';
+import { TimePipe } from './pipes/time.pipe';
 
 @NgModule({
-  declarations: [HeaderComponent, ToastComponent, ModalComponent],
+  declarations: [HeaderComponent, ToastComponent, ModalComponent, TimePipe],
   imports: [CommonModule, NgbModule, AppRoutingModule, RouterModule],
-  exports: [HeaderComponent, ToastComponent, ModalComponent],
+  exports: [HeaderComponent, ToastComponent, ModalComponent, TimePipe],
 })
 export class SharedModule {}

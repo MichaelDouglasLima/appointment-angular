@@ -145,16 +145,28 @@ export class CalendarComponent implements OnInit, OnChanges {
     previousDate.setMonth(this.calendarMonth.getMonth() - 1);
     previousDate.setDate(1);
 
+    let updated = false;
+
     if (this.isDateInFuture(previousDate)) {
       this.calendarMonth = previousDate;
+      updated = true;
     } else {
       if (this.isDateInCurrentMonthYear(previousDate)) {
         previousDate.setDate(new Date().getDate());
         this.calendarMonth = previousDate;
+        updated = true;
       }
     }
-    this.loadCalendar();
-    this.selectedDay = 0;
+
+    if (updated) {
+      this.changedMonthEvent.emit(new Date(this.calendarMonth));
+      this.loadCalendar();
+      this.selectedDay = 0;
+    }
+
+    // this.changedMonthEvent.emit(new Date(this.calendarMonth));
+    // this.loadCalendar();
+    // this.selectedDay = 0;
   }
 
   showPreviousMonth(): boolean {

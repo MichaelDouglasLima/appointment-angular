@@ -16,6 +16,9 @@ import { ClientService } from 'src/app/core/services/client.service';
 import { ToastService } from 'src/app/core/services/toast.service';
 import { FormCreateAppointmentComponent } from '../../components/form-create-appointment/form-create-appointment.component';
 import { ProfessionalService } from 'src/app/core/services/professional.service';
+import { Time } from '../../components/time/models/time';
+import { JsonPipe } from '@angular/common';
+import { Appointment } from 'src/app/core/models/appointment';
 
 @Component({
   selector: 'app-create-appointment-page',
@@ -28,9 +31,14 @@ export class CreateAppointmentPageComponent implements OnInit {
   professionalsByArea: Professional[] = [];
   selectedProfessional: Professional = {} as Professional;
 
-  //Calendar Component
+  // Calendar Component
   calendarMonth: Date = new Date();
   availableDays: number[] = [];
+  selectedDate!: Date;
+
+  // Time Component
+  availableTimes: Time[] = [];
+  selectedTime!: Time;
 
   @ViewChild(FormCreateAppointmentComponent)
   private formCreateAppointmentComponent!: FormCreateAppointmentComponent;
@@ -41,26 +49,55 @@ export class CreateAppointmentPageComponent implements OnInit {
     private clientService: ClientService,
     private professionalService: ProfessionalService,
     private toastService: ToastService,
+    private json: JsonPipe,
   ) {}
 
   ngOnInit(): void {
     this.loadAreas();
-    this.loadAppointmentType();
+    this.loadAppointmentTypes();
+  }
+
+  onSelectedArea(area: Area) {
+    this.selectedProfessional = {} as Professional;
+    this.availableDays = [];
+
+    this.resetTimes();
+
+    this.areaService.getActiveProfessionalsFromArea(area).subscribe({
+      next: (professionals) => {
+        this.professionalsByArea = professionals;
+      },
+      error: () => {
+        this.toastService.show('Erro ao carregar os profissionais por área!', {
+          classname: 'bg-danger text-light',
+        });
+      },
+    });
   }
 
   onSelectedProfessional(professional: Professional) {
     this.selectedProfessional = professional;
     this.calendarMonth = new Date();
     this.loadAvailableDays();
+    this.resetTimes();
   }
 
   onSelectedDate(date: Date) {
-    alert(date);
+    // alert(date);
+    this.selectedDate = date;
+    this.loadAvailableTimes();
+  }
+
+  onSelectedTime(time: Time) {
+    //alert(JSON.stringify(time));
+    this.selectedTime = time;
   }
 
   onChangedMonth(date: Date) {
     this.calendarMonth = date;
     this.loadAvailableDays();
+
+    this.resetTimes();
   }
 
   searchClients = (text: Observable<string>): Observable<Client[]> => {
@@ -73,6 +110,32 @@ export class CreateAppointmentPageComponent implements OnInit {
       ),
     );
   };
+
+  loadAreas() {
+    this.areaService.getAreas().subscribe({
+      next: (areas) => {
+        this.areas = areas;
+      },
+      error: () => {
+        this.toastService.show('Erro ao carregar as áreas!', {
+          classname: 'bg-danger text-light',
+        });
+      },
+    });
+  }
+
+  loadAppointmentTypes() {
+    this.appointmentTypeService.getAppointmentTypes().subscribe({
+      next: (appointmentTypes) => {
+        this.appointmentTypes = appointmentTypes;
+      },
+      error: () => {
+        this.toastService.show('Erro ao carregar os tipos de agendamento!', {
+          classname: 'bg-danger text-light',
+        });
+      },
+    });
+  }
 
   loadAvailableDays() {
     this.professionalService
@@ -89,49 +152,41 @@ export class CreateAppointmentPageComponent implements OnInit {
       });
   }
 
-  loadAreas() {
-    this.areaService.getAreas().subscribe({
-      next: (areas) => {
-        this.areas = areas;
-      },
-      error: () => {
-        this.toastService.show('Erro ao carregar as áreas!', {
-          classname: 'bg-danger text-light',
-        });
-      },
-    });
+  loadAvailableTimes() {
+    this.selectedTime = {} as Time;
+    this.availableTimes = [];
+    this.professionalService
+      .getAvailableTimes(this.selectedProfessional, this.selectedDate)
+      .subscribe({
+        next: (times) => {
+          this.availableTimes = times;
+        },
+        error: () => {
+          this.toastService.show('Erro ao carregar os horários disponíveis!', {
+            classname: 'bg-danger text-light',
+          });
+        },
+      });
   }
 
-  loadAppointmentType() {
-    this.appointmentTypeService.getAppointmentTypes().subscribe({
-      next: (appointmentTypes) => {
-        this.appointmentTypes = appointmentTypes;
-      },
-      error: () => {
-        this.toastService.show('Erro ao carregar os tipos de agendamento!', {
-          classname: 'bg-danger text-light',
-        });
-      },
-    });
-  }
-
-  onSelectedArea(area: Area) {
-    this.areaService.getActiveProfessionalsFromArea(area).subscribe({
-      next: (professionals) => {
-        this.professionalsByArea = professionals;
-      },
-      error: () => {
-        this.toastService.show('Erro ao carregar os profissionais por área!', {
-          classname: 'bg-danger text-light',
-        });
-      },
-    });
+  resetTimes() {
+    this.selectedTime = {} as Time;
+    this.availableTimes = [];
   }
 
   createAppointment() {
     this.formCreateAppointmentComponent.submitted = true;
-    alert(
-      JSON.stringify(this.formCreateAppointmentComponent.appointmentForm.value),
-    );
+
+    let appointment: Appointment = {} as Appointment;
+
+    appointment = {
+      ...this.formCreateAppointmentComponent.appointmentForm.value,
+    };
+
+    appointment.startTime = this.selectedTime.startTime;
+    appointment.endTime = this.selectedTime.endTime;
+    appointment.date = this.selectedDate;
+
+    alert(this.json.transform(appointment));
   }
 }
