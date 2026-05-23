@@ -824,6 +824,151 @@
       "endTime": "13:00:00",
       "date": "2026-05-04T03:00:00.000Z",
       "id": 1
+    },
+    {
+      "area": {
+        "id": 2,
+        "name": "Fisoterapeuta"
+      },
+      "professional": {
+        "id": 2,
+        "name": "Dra. Maria Lucia",
+        "phone": "(15) 98776-3917",
+        "active": true,
+        "areaId": 2
+      },
+      "type": {
+        "id": 2,
+        "type": "Convênio Dr. Saúde"
+      },
+      "client": {
+        "id": 39,
+        "name": "Guadalupe Fulton",
+        "gender": "female",
+        "dateOfBirth": "2015-01-10",
+        "phone": "(82) 1536-2126"
+      },
+      "comments": "Segundo Agendamento",
+      "startTime": "10:00:00",
+      "endTime": "10:30:00",
+      "date": "2026-05-11T03:00:00.000Z",
+      "id": 2
+    },
+    {
+      "area": {
+        "id": 1,
+        "name": "Clinico Geral"
+      },
+      "professional": {
+        "id": 4,
+        "name": "Dr. Michael Silva",
+        "phone": "(15) 98776-3917",
+        "active": true,
+        "areaId": 1
+      },
+      "type": {
+        "id": 3,
+        "type": "Convênio Prefeitura"
+      },
+      "client": {
+        "id": 39,
+        "name": "Guadalupe Fulton",
+        "gender": "female",
+        "dateOfBirth": "2015-01-10",
+        "phone": "(82) 1536-2126"
+      },
+      "comments": "Terceiro Agendamento",
+      "startTime": "14:30:00",
+      "endTime": "15:00:00",
+      "date": "2026-05-18T03:00:00.000Z",
+      "id": 3
+    },
+    {
+      "area": {
+        "id": 1,
+        "name": "Clinico Geral"
+      },
+      "professional": {
+        "id": 1,
+        "name": "Dr. Fernando Souza",
+        "phone": "(15) 98776-3917",
+        "active": true,
+        "areaId": 1
+      },
+      "type": {
+        "id": 2,
+        "type": "Convênio Dr. Saúde"
+      },
+      "client": {
+        "id": 81,
+        "name": "Carver Villarreal",
+        "gender": "male",
+        "dateOfBirth": "2014-11-19",
+        "phone": "(85) 2409-2235"
+      },
+      "comments": "Terceiro Agendamento",
+      "startTime": "08:30:00",
+      "endTime": "09:00:00",
+      "date": "2026-05-18T03:00:00.000Z",
+      "id": 4
+    },
+    {
+      "area": {
+        "id": 2,
+        "name": "Fisoterapeuta"
+      },
+      "professional": {
+        "id": 2,
+        "name": "Dra. Maria Lucia",
+        "phone": "(15) 98776-3917",
+        "active": true,
+        "areaId": 2
+      },
+      "type": {
+        "id": 2,
+        "type": "Convênio Dr. Saúde"
+      },
+      "client": {
+        "id": 26,
+        "name": "Cohen Barber",
+        "gender": "male",
+        "dateOfBirth": "2020-01-30",
+        "phone": "(96) 8433-3309"
+      },
+      "comments": "Quarto Agendamento",
+      "startTime": "08:30:00",
+      "endTime": "09:00:00",
+      "date": "2026-05-18T03:00:00.000Z",
+      "id": 5
+    },
+    {
+      "area": {
+        "id": 1,
+        "name": "Clinico Geral"
+      },
+      "professional": {
+        "id": 4,
+        "name": "Dr. Michael Silva",
+        "phone": "(15) 98776-3917",
+        "active": true,
+        "areaId": 1
+      },
+      "type": {
+        "id": 2,
+        "type": "Convênio Dr. Saúde"
+      },
+      "client": {
+        "id": 41,
+        "name": "Browning Ramirez",
+        "gender": "male",
+        "dateOfBirth": "2019-03-30",
+        "phone": "(95) 1413-3968"
+      },
+      "comments": "Quinto Agendamento",
+      "startTime": "15:30:00",
+      "endTime": "16:00:00",
+      "date": "2026-05-15T03:00:00.000Z",
+      "id": 6
     }
   ]
 }

@@ -89,7 +89,7 @@
     </div>
 
     <div class="text-start">
-      <small *ngIf="getSelectedClient().phone"
+      <small *ngIf="getSelectedClient() && getSelectedClient().phone"
         >Confirme o telefone do cliente: {{ getSelectedClient().phone }}</small
       >
     </div>

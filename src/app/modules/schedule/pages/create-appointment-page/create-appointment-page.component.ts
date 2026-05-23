@@ -200,6 +200,7 @@ export class CreateAppointmentPageComponent implements OnInit {
                 this.toastService.show('Agendamento realizado com sucesso!', {
                   classname: 'bg-success text-light',
                 });
+                this.cleanForm();
               },
               error: () => {
                 this.toastService.show('Erro agendamento não realizado!', {
@@ -210,6 +211,18 @@ export class CreateAppointmentPageComponent implements OnInit {
         }
       });
     }
+  }
+
+  cleanForm() {
+    this.availableDays = [];
+    this.availableTimes = [];
+    this.selectedProfessional = {} as Professional;
+    this.selectedDate = {} as Date;
+    this.selectedTime = {} as Time;
+    this.calendarMonth = new Date();
+    this.appointment = {} as Appointment;
+    this.formCreateAppointmentComponent.appointmentForm.reset();
+    this.formCreateAppointmentComponent.submitted = false;
   }
 
   private createAppointmentObject(): Appointment {
@@ -228,7 +241,7 @@ export class CreateAppointmentPageComponent implements OnInit {
 
   private checkDateAndTimeErros() {
     this.calendarError = this.selectedDate ? '' : '*Selecione uma data!';
-    this.timeError = this.timeError ? '' : '*Selecione um horário!';
+    this.timeError = this.selectedTime ? '' : '*Selecione um horário!';
   }
 
   private isAppointmentValid() {
