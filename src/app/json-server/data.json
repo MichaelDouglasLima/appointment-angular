@@ -969,6 +969,35 @@
       "endTime": "16:00:00",
       "date": "2026-05-15T03:00:00.000Z",
       "id": 6
+    },
+    {
+      "area": {
+        "id": 1,
+        "name": "Clinico Geral"
+      },
+      "professional": {
+        "id": 4,
+        "name": "Dr. Michael Silva",
+        "phone": "(15) 98776-3917",
+        "active": true,
+        "areaId": 1
+      },
+      "type": {
+        "id": 3,
+        "type": "Convênio Prefeitura"
+      },
+      "client": {
+        "id": 24,
+        "name": "Alyce Mccarthy",
+        "gender": "female",
+        "dateOfBirth": "2018-08-31",
+        "phone": "(89) 5540-2551"
+      },
+      "comments": "Sexto Agendamento",
+      "startTime": "11:30:00",
+      "endTime": "12:00:00",
+      "date": "2026-05-01T03:00:00.000Z",
+      "id": 7
     }
   ]
 }

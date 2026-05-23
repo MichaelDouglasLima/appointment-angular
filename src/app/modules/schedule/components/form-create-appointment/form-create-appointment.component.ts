@@ -70,6 +70,11 @@ export class FormCreateAppointmentComponent {
     return this.appointmentForm.controls['client'].value;
   }
 
+  cleanForm() {
+    this.appointmentForm.reset();
+    this.submitted = false;
+  }
+
   get afArea() {
     return this.appointmentForm.get('area');
   }

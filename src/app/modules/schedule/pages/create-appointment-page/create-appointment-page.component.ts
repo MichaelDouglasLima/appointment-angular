@@ -189,7 +189,6 @@ export class CreateAppointmentPageComponent implements OnInit {
 
     if (this.isAppointmentValid()) {
       this.appointment = this.createAppointmentObject();
-      console.log(this.json.transform(this.appointment));
 
       modalConfirm.open({ size: 'lg' }).then((confirm) => {
         if (confirm) {
@@ -214,15 +213,14 @@ export class CreateAppointmentPageComponent implements OnInit {
   }
 
   cleanForm() {
+    this.formCreateAppointmentComponent.cleanForm();
     this.availableDays = [];
     this.availableTimes = [];
+    this.calendarMonth = new Date();
     this.selectedProfessional = {} as Professional;
     this.selectedDate = {} as Date;
     this.selectedTime = {} as Time;
-    this.calendarMonth = new Date();
     this.appointment = {} as Appointment;
-    this.formCreateAppointmentComponent.appointmentForm.reset();
-    this.formCreateAppointmentComponent.submitted = false;
   }
 
   private createAppointmentObject(): Appointment {
