@@ -17,12 +17,14 @@
       <app-calendar
         [calendarMonth]="calendarMonth"
         [availableDays]="availableDays"
+        [error]="calendarError"
         (changedMonthEvent)="onChangedMonth($event)"
         (selectedDateEvent)="onSelectedDate($event)"
       ></app-calendar>
 
       <app-time
         [times]="availableTimes"
+        [error]="timeError"
         (selectedTimeEvent)="onSelectedTime($event)"
       ></app-time>
     </div>
@@ -33,10 +35,68 @@
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#confirmModal"
-        (click)="createAppointment()"
+        (click)="createAppointment(modalConfirm)"
       >
         Agendar
       </button>
     </div>
   </div>
 </div>
+
+<!-- Modal -->
+<app-modal #modalConfirm [title]="'Confirmar Agendamento?'">
+  <ng-container *ngIf="appointment">
+    <div class="alert alert-secondary" role="alert">
+      <div class="row">
+        <div class="col-2">Cliente:</div>
+        <div class="col-10 fw-bold">
+          <ng-container *ngIf="appointment.client">
+            {{ appointment.client.name }}
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">Data:</div>
+        <div class="col-10 fw-bold">
+          {{ appointment.date | date: "dd/MM/yyyy" }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">Horário:</div>
+        <div class="col-10 fw-bold">{{ appointment.startTime }}</div>
+      </div>
+    </div>
+
+    <div class="alert alert-secondary" role="alert">
+      <div class="row">
+        <div class="col-2">Área:</div>
+        <div class="col-10 fw-bold">
+          <ng-container *ngIf="appointment.area">
+            {{ appointment.area.name }}
+          </ng-container>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">Profisional:</div>
+        <div class="col-10 fw-bold">
+          {{ appointment.professional && appointment.professional.name }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">Tipo:</div>
+        <div class="col-10 fw-bold">
+          {{ appointment.type && appointment.type.type }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-2">Comentários:</div>
+        <div class="col-10 fw-bold">{{ appointment.comments }}</div>
+      </div>
+    </div>
+  </ng-container>
+</app-modal>

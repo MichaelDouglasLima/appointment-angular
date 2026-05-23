@@ -52,4 +52,8 @@
       {{ dayOfMonth.day || "&nbsp;" }}
     </div>
   </div>
+
+  <div *ngIf="error" class="text-danger text-start">
+    <small>{{ error }}</small>
+  </div>
 </div>

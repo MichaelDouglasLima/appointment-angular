@@ -54,7 +54,7 @@
     <select
       class="form-select"
       aria-label="Tipo de atendimento"
-      formControlName="appointmentType"
+      formControlName="type"
     >
       <!-- <option value="" selected>Selecione o tipo de atendimento</option> -->
 
@@ -89,7 +89,7 @@
     </div>
 
     <div class="text-start">
-      <small *ngIf="getSelectedClient().phone"
+      <small *ngIf="getSelectedClient()"
         >Confirme o telefone do cliente: {{ getSelectedClient().phone }}</small
       >
     </div>

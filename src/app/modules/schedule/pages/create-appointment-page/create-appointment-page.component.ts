@@ -19,6 +19,8 @@ import { ProfessionalService } from 'src/app/core/services/professional.service'
 import { Time } from '../../components/time/models/time';
 import { JsonPipe } from '@angular/common';
 import { Appointment } from 'src/app/core/models/appointment';
+import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { AppointmentService } from 'src/app/core/services/appointment.service';
 
 @Component({
   selector: 'app-create-appointment-page',
@@ -30,15 +32,18 @@ export class CreateAppointmentPageComponent implements OnInit {
   appointmentTypes: AppointmentType[] = [];
   professionalsByArea: Professional[] = [];
   selectedProfessional: Professional = {} as Professional;
+  appointment: Appointment = {} as Appointment;
 
   // Calendar Component
   calendarMonth: Date = new Date();
   availableDays: number[] = [];
   selectedDate!: Date;
+  calendarError: string = '';
 
   // Time Component
   availableTimes: Time[] = [];
   selectedTime!: Time;
+  timeError: string = '';
 
   @ViewChild(FormCreateAppointmentComponent)
   private formCreateAppointmentComponent!: FormCreateAppointmentComponent;
@@ -49,6 +54,7 @@ export class CreateAppointmentPageComponent implements OnInit {
     private clientService: ClientService,
     private professionalService: ProfessionalService,
     private toastService: ToastService,
+    private appointmentService: AppointmentService,
     private json: JsonPipe,
   ) {}
 
@@ -86,11 +92,14 @@ export class CreateAppointmentPageComponent implements OnInit {
     // alert(date);
     this.selectedDate = date;
     this.loadAvailableTimes();
+    this.calendarError = '';
+    this.timeError = '';
   }
 
   onSelectedTime(time: Time) {
     //alert(JSON.stringify(time));
     this.selectedTime = time;
+    this.timeError = '';
   }
 
   onChangedMonth(date: Date) {
@@ -174,9 +183,47 @@ export class CreateAppointmentPageComponent implements OnInit {
     this.availableTimes = [];
   }
 
-  createAppointment() {
+  createAppointment(modalConfirm: ModalComponent) {
     this.formCreateAppointmentComponent.submitted = true;
+    this.checkDateAndTimeErros();
 
+    if (this.isAppointmentValid()) {
+      this.appointment = this.createAppointmentObject();
+
+      modalConfirm.open({ size: 'lg' }).then((confirm) => {
+        if (confirm) {
+          this.appointmentService
+            .createAppointment(this.appointment)
+            .subscribe({
+              next: () => {
+                this.toastService.show('Agendamento realizado com sucesso!', {
+                  classname: 'bg-success text-light',
+                });
+                this.cleanForm();
+              },
+              error: () => {
+                this.toastService.show('Erro agendamento não realizado!', {
+                  classname: 'bg-danger text-light',
+                });
+              },
+            });
+        }
+      });
+    }
+  }
+
+  cleanForm() {
+    this.formCreateAppointmentComponent.cleanForm();
+    this.availableDays = [];
+    this.availableTimes = [];
+    this.calendarMonth = new Date();
+    this.selectedProfessional = {} as Professional;
+    this.selectedDate = {} as Date;
+    this.selectedTime = {} as Time;
+    this.appointment = {} as Appointment;
+  }
+
+  private createAppointmentObject(): Appointment {
     let appointment: Appointment = {} as Appointment;
 
     appointment = {
@@ -187,6 +234,19 @@ export class CreateAppointmentPageComponent implements OnInit {
     appointment.endTime = this.selectedTime.endTime;
     appointment.date = this.selectedDate;
 
-    alert(this.json.transform(appointment));
+    return appointment;
+  }
+
+  private checkDateAndTimeErros() {
+    this.calendarError = this.selectedDate ? '' : '*Selecione uma data!';
+    this.timeError = this.selectedTime ? '' : '*Selecione um horário!';
+  }
+
+  private isAppointmentValid() {
+    return !!(
+      this.formCreateAppointmentComponent.appointmentForm.valid &&
+      this.selectedDate &&
+      this.selectedTime
+    );
   }
 }
