@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Professional } from '../models/professional';
 import { Observable, of } from 'rxjs';
@@ -140,5 +140,32 @@ export class ProfessionalService {
         available: Math.random() >= 0.5,
       },
     ]);
+  }
+
+  create(professional: Professional): Observable<Professional> {
+    return this.http.post<Professional>(this.baseUrl, professional);
+  }
+
+  update(professional: Professional): Observable<void> {
+    let url = `${this.baseUrl}/${professional.id}`;
+    return this.http.put<void>(url, professional);
+  }
+
+  getProfessionalById(id: number): Observable<Professional> {
+    let url = `${this.baseUrl}/${id}`;
+    return this.http.get<Professional>(url);
+  }
+
+  getProfessionalsPage(
+    professionalFilter: string,
+    page: number,
+  ): Observable<HttpResponse<Professional[]>> {
+    let url = `${this.baseUrl}?name_like=${professionalFilter}&_page=${page}&_limit=10&_sort=name`;
+    return this.http.get<Professional[]>(url, { observe: 'response' });
+  }
+
+  delete(professional: Professional): Observable<Professional> {
+    let url = `${this.baseUrl}/${professional.id}`;
+    return this.http.delete<Professional>(url);
   }
 }
