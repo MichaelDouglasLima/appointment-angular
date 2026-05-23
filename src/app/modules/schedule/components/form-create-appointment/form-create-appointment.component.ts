@@ -44,7 +44,7 @@ export class FormCreateAppointmentComponent {
         },
         Validators.required,
       ],
-      appointmentType: ['', Validators.required],
+      type: ['', Validators.required],
       client: ['', Validators.required],
       comments: [''],
     });
@@ -79,7 +79,7 @@ export class FormCreateAppointmentComponent {
   }
 
   get afAppointmentType() {
-    return this.appointmentForm.get('appointmentType');
+    return this.appointmentForm.get('type');
   }
 
   get afClient() {
