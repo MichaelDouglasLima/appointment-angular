@@ -20,6 +20,7 @@ import { Time } from '../../components/time/models/time';
 import { JsonPipe } from '@angular/common';
 import { Appointment } from 'src/app/core/models/appointment';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
+import { AppointmentService } from 'src/app/core/services/appointment.service';
 
 @Component({
   selector: 'app-create-appointment-page',
@@ -53,6 +54,7 @@ export class CreateAppointmentPageComponent implements OnInit {
     private clientService: ClientService,
     private professionalService: ProfessionalService,
     private toastService: ToastService,
+    private appointmentService: AppointmentService,
     private json: JsonPipe,
   ) {}
 
@@ -181,7 +183,7 @@ export class CreateAppointmentPageComponent implements OnInit {
     this.availableTimes = [];
   }
 
-  createAppointment(modalAppointment: ModalComponent) {
+  createAppointment(modalConfirm: ModalComponent) {
     this.formCreateAppointmentComponent.submitted = true;
     this.checkDateAndTimeErros();
 
@@ -189,15 +191,22 @@ export class CreateAppointmentPageComponent implements OnInit {
       this.appointment = this.createAppointmentObject();
       console.log(this.json.transform(this.appointment));
 
-      modalAppointment.open().then((confirm) => {
+      modalConfirm.open({ size: 'lg' }).then((confirm) => {
         if (confirm) {
-          this.toastService.show('Agendamento realizado com sucesso!', {
-            classname: 'bg-success text-light',
-          });
-        } else {
-          this.toastService.show('Agendamento não foi realizado!', {
-            classname: 'bg-danger text-light',
-          });
+          this.appointmentService
+            .createAppointment(this.appointment)
+            .subscribe({
+              next: () => {
+                this.toastService.show('Agendamento realizado com sucesso!', {
+                  classname: 'bg-success text-light',
+                });
+              },
+              error: () => {
+                this.toastService.show('Erro agendamento não realizado!', {
+                  classname: 'bg-danger text-light',
+                });
+              },
+            });
         }
       });
     }
@@ -210,8 +219,8 @@ export class CreateAppointmentPageComponent implements OnInit {
       ...this.formCreateAppointmentComponent.appointmentForm.value,
     };
 
-    appointment.startTime = this.selectedTime?.startTime;
-    appointment.endTime = this.selectedTime?.endTime;
+    appointment.startTime = this.selectedTime.startTime;
+    appointment.endTime = this.selectedTime.endTime;
     appointment.date = this.selectedDate;
 
     return appointment;

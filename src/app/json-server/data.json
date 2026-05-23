@@ -794,5 +794,36 @@
       "id": 3,
       "type": "Convênio Prefeitura"
     }
+  ],
+  "appointments": [
+    {
+      "area": {
+        "id": 1,
+        "name": "Clinico Geral"
+      },
+      "professional": {
+        "id": 1,
+        "name": "Dr. Fernando Souza",
+        "phone": "(15) 98776-3917",
+        "active": true,
+        "areaId": 1
+      },
+      "type": {
+        "id": 2,
+        "type": "Convênio Dr. Saúde"
+      },
+      "client": {
+        "id": 41,
+        "name": "Browning Ramirez",
+        "gender": "male",
+        "dateOfBirth": "2019-03-30",
+        "phone": "(95) 1413-3968"
+      },
+      "comments": "Primeiro Agendamento",
+      "startTime": "12:30:00",
+      "endTime": "13:00:00",
+      "date": "2026-05-04T03:00:00.000Z",
+      "id": 1
+    }
   ]
 }

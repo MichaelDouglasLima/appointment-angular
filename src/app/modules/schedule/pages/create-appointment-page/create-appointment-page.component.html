@@ -35,7 +35,7 @@
         type="button"
         data-bs-toggle="modal"
         data-bs-target="#confirmModal"
-        (click)="createAppointment(modalAppointment)"
+        (click)="createAppointment(modalConfirm)"
       >
         Agendar
       </button>
@@ -44,12 +44,16 @@
 </div>
 
 <!-- Modal -->
-<app-modal #modalAppointment [title]="'Confirmar Agendamento?'">
-  <ng-container>
+<app-modal #modalConfirm [title]="'Confirmar Agendamento?'">
+  <ng-container *ngIf="appointment">
     <div class="alert alert-secondary" role="alert">
       <div class="row">
         <div class="col-2">Cliente:</div>
-        <div class="col-10 fw-bold">{{ appointment.client?.name }}</div>
+        <div class="col-10 fw-bold">
+          <ng-container *ngIf="appointment.client">
+            {{ appointment.client.name }}
+          </ng-container>
+        </div>
       </div>
 
       <div class="row">
@@ -67,23 +71,31 @@
 
     <div class="alert alert-secondary" role="alert">
       <div class="row">
-        <div class="col-3">Área:</div>
-        <div class="col-9 fw-bold">{{ appointment.area?.name }}</div>
+        <div class="col-2">Área:</div>
+        <div class="col-10 fw-bold">
+          <ng-container *ngIf="appointment.area">
+            {{ appointment.area.name }}
+          </ng-container>
+        </div>
       </div>
 
       <div class="row">
-        <div class="col-3">Profisional:</div>
-        <div class="col-9 fw-bold">{{ appointment.professional?.name }}</div>
+        <div class="col-2">Profisional:</div>
+        <div class="col-10 fw-bold">
+          {{ appointment.professional && appointment.professional.name }}
+        </div>
       </div>
 
       <div class="row">
-        <div class="col-3">Tipo:</div>
-        <div class="col-9 fw-bold">{{ appointment.type?.type }}</div>
+        <div class="col-2">Tipo:</div>
+        <div class="col-10 fw-bold">
+          {{ appointment.type && appointment.type.type }}
+        </div>
       </div>
 
       <div class="row">
-        <div class="col-3">Comentários:</div>
-        <div class="col-9 fw-bold">{{ appointment.comments }}</div>
+        <div class="col-2">Comentários:</div>
+        <div class="col-10 fw-bold">{{ appointment.comments }}</div>
       </div>
     </div>
   </ng-container>
