@@ -5,6 +5,7 @@ import {
   OnChanges,
   OnInit,
   Output,
+  SimpleChanges,
 } from '@angular/core';
 import { Time } from './models/time';
 
@@ -29,11 +30,13 @@ export class TimeComponent implements OnInit, OnChanges {
     this.resetTimes();
   }
 
-  ngOnChanges(): void {
-    this.selectedTime = {} as Time;
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.hasOwnProperty('times')) {
+      this.selectedTime = {} as Time;
 
-    if (this.times.length == 0) {
-      this.resetTimes();
+      if (this.times.length == 0) {
+        this.resetTimes();
+      }
     }
   }
 

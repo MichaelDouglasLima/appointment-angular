@@ -93,7 +93,6 @@ export class CreateAppointmentPageComponent implements OnInit {
     this.selectedDate = date;
     this.loadAvailableTimes();
     this.calendarError = '';
-    this.timeError = '';
   }
 
   onSelectedTime(time: Time) {
@@ -162,7 +161,6 @@ export class CreateAppointmentPageComponent implements OnInit {
   }
 
   loadAvailableTimes() {
-    this.selectedTime = {} as Time;
     this.availableTimes = [];
     this.professionalService
       .getAvailableTimes(this.selectedProfessional, this.selectedDate)
