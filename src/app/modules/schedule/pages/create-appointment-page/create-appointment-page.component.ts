@@ -3,6 +3,7 @@ import {
   debounceTime,
   distinctUntilChanged,
   filter,
+  map,
   Observable,
   switchMap,
 } from 'rxjs';
@@ -21,6 +22,7 @@ import { JsonPipe } from '@angular/common';
 import { Appointment } from 'src/app/core/models/appointment';
 import { ModalComponent } from 'src/app/shared/components/modal/modal.component';
 import { AppointmentService } from 'src/app/core/services/appointment.service';
+import { Page } from 'src/app/core/models/page';
 
 @Component({
   selector: 'app-create-appointment-page',
@@ -116,6 +118,7 @@ export class CreateAppointmentPageComponent implements OnInit {
       switchMap((term) =>
         this.clientService.getClientsWithNameContaining(term),
       ),
+      map((page) => page.content || []),
     );
   };
 
@@ -199,8 +202,8 @@ export class CreateAppointmentPageComponent implements OnInit {
                 });
                 this.cleanForm();
               },
-              error: () => {
-                this.toastService.show('Erro agendamento não realizado!', {
+              error: (e) => {
+                this.toastService.show(e.error.message, {
                   classname: 'bg-danger text-light',
                 });
               },
