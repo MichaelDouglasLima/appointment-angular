@@ -58,7 +58,7 @@ export class CalendarComponent implements OnInit, OnChanges {
 
   loadCalendar() {
     this.days = [
-      ...this.getInitialDays(
+      ...this.getBlankInitalDays(
         this.calendarMonth.getFullYear(),
         this.calendarMonth.getMonth(),
       ),
@@ -95,7 +95,7 @@ export class CalendarComponent implements OnInit, OnChanges {
     return days;
   }
 
-  getInitialDays(year: number, month: number): Day[] {
+  getBlankInitalDays(year: number, month: number): Day[] {
     let firstDay = this.getFirstDayInMonth(year, month);
     let emptyDays: number = 0;
     let dayWeek = firstDay.getDay();
@@ -107,7 +107,7 @@ export class CalendarComponent implements OnInit, OnChanges {
       emptyDays = dayWeek - 1;
     }
 
-    for (let i = 0; i <= emptyDays; i++) {
+    for (let i = 0; i < emptyDays; i++) {
       days.push({} as Day);
     }
 
@@ -136,6 +136,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   onNextMonth() {
+    this.availableDays = [];
     this.calendarMonth = new Date(this.calendarMonth);
     this.calendarMonth.setMonth(this.calendarMonth.getMonth() + 1);
     this.calendarMonth.setDate(1);
@@ -145,6 +146,7 @@ export class CalendarComponent implements OnInit, OnChanges {
   }
 
   onPreviousMonth() {
+    this.availableDays = [];
     let previousDate = new Date(this.calendarMonth);
 
     previousDate.setMonth(this.calendarMonth.getMonth() - 1);
