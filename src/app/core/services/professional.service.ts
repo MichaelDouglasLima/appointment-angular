@@ -5,6 +5,7 @@ import { Observable, of } from 'rxjs';
 import { Time } from 'src/app/modules/schedule/components/time/models/time';
 import { environment } from 'src/environments/environment';
 import { DatePipe } from '@angular/common';
+import { Page } from '../models/page';
 
 @Injectable({
   providedIn: 'root',
@@ -164,10 +165,19 @@ export class ProfessionalService {
   getProfessionalsPage(
     professionalFilter: string,
     page: number,
-  ): Observable<HttpResponse<Professional[]>> {
+  ): Observable<Page<Professional>> {
     let url = `${this.baseUrl}?name_like=${professionalFilter}&_page=${page}&_limit=10&_sort=name`;
-    return this.http.get<Professional[]>(url, { observe: 'response' });
+    return this.http.get<Page<Professional>>(url);
   }
+
+  // json-server example
+  // getProfessionalsPage(
+  //   professionalFilter: string,
+  //   page: number,
+  // ): Observable<HttpResponse<Professional[]>> {
+  //   let url = `${this.baseUrl}?name_like=${professionalFilter}&_page=${page}&_limit=10&_sort=name`;
+  //   return this.http.get<Professional[]>(url, { observe: 'response' });
+  // }
 
   delete(professional: Professional): Observable<Professional> {
     let url = `${this.baseUrl}/${professional.id}`;

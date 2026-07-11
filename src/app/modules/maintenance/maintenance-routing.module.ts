@@ -8,7 +8,7 @@ import { ClientFormPageComponent } from './pages/client-form-page/client-form-pa
 import { ProfessionalsTablePageComponent } from './pages/professionals-table-page/professionals-table-page.component';
 import { ProfessionalFormPageComponent } from './pages/professional-form-page/professional-form-page.component';
 
-const routes: Routes = [
+export const routes: Routes = [
   { path: 'area', component: AreaPageComponent },
   { path: 'appointment-type', component: AppointmentTypePageComponent },
   { path: 'clients-table', component: ClientsTablePageComponent },
