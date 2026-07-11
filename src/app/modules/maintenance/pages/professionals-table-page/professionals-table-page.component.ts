@@ -30,10 +30,7 @@ export class ProfessionalsTablePageComponent implements OnInit {
       .getProfessionalsPage(this.nameFilter, this.page)
       .subscribe({
         next: (response) => {
-          ((this.professionalPage.content = response.body),
-            (this.professionalPage.numberOfElements = parseInt(
-              response.headers.get('X-Total-Count') || '0',
-            )));
+          this.professionalPage = response;
         },
         error: () => {
           this.toastService.show('Erro ao carregar os profissionais!', {
@@ -42,6 +39,25 @@ export class ProfessionalsTablePageComponent implements OnInit {
         },
       });
   }
+
+  // json-server example
+  // loadProfessionals() {
+  //   this.professionalService
+  //     .getProfessionalsPage(this.nameFilter, this.page)
+  //     .subscribe({
+  //       next: (response) => {
+  //         ((this.professionalPage.content = response.body),
+  //           (this.professionalPage.numberOfElements = parseInt(
+  //             response.headers.get('X-Total-Count') || '0',
+  //           )));
+  //       },
+  //       error: () => {
+  //         this.toastService.show('Erro ao carregar os profissionais!', {
+  //           classname: 'bg-danger text-light',
+  //         });
+  //       },
+  //     });
+  // }
 
   pageChange() {
     this.loadProfessionals();

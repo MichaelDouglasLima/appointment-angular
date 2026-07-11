@@ -2,6 +2,8 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    // "ignoreDeprecations": "6.0",
+    // "rootDir": "./src",
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
@@ -22,7 +24,8 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "types": ["jasmine", "node"]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,

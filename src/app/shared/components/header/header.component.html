@@ -15,7 +15,11 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="home"
+          <a
+            class="nav-link active"
+            aria-current="page"
+            routerLink="home"
+            id="home"
             >Home</a
           >
         </li>
@@ -25,13 +29,13 @@
             class="nav-link"
             tabindex="0"
             ngbDropdownToggle
-            id="navbarDropdown1"
+            id="navbarDropdownCadastros"
             role="button"
             >Cadastros</a
           >
           <div
             ngbDropdownMenu
-            aria-labelledby="navbarDropdown1"
+            aria-labelledby="navbarDropdownCadastros"
             class="dropdown-menu"
           >
             <a
@@ -74,32 +78,29 @@
             class="nav-link"
             tabindex="0"
             ngbDropdownToggle
-            id="navbarDropdown1"
+            id="navbarDropdownAgendamentos"
             role="button"
             >Agendamentos</a
           >
           <div
             ngbDropdownMenu
-            aria-labelledby="navbarDropdown1"
+            aria-labelledby="navbarDropdownAgendamentos"
             class="dropdown-menu"
           >
             <a
               ngbDropdownItem
-              routerLink="home"
               (click)="$event.preventDefault()"
               routerLink="today-appointments"
               >Hoje</a
             >
             <a
               ngbDropdownItem
-              routerLink="home"
               (click)="$event.preventDefault()"
               routerLink="create-appointment"
               >Agendar</a
             >
             <a
               ngbDropdownItem
-              routerLink="home"
               (click)="$event.preventDefault()"
               routerLink="cancel-appointment"
               >Cancelar</a
@@ -107,7 +108,6 @@
             <hr class="dropdown-divider" />
             <a
               ngbDropdownItem
-              routerLink="home"
               (click)="$event.preventDefault()"
               routerLink="client-history"
               >Histórico do Cliente</a
@@ -115,7 +115,6 @@
             <hr class="dropdown-divider" />
             <a
               ngbDropdownItem
-              routerLink="home"
               (click)="$event.preventDefault()"
               routerLink="professional-workdays"
               >Agenda do Profissional</a
@@ -132,6 +131,7 @@
           class="btn btn-outline-secondary"
           type="submit"
           (click)="logout()"
+          id="btnLogout"
         >
           Sair
         </button>
