@@ -1,5 +1,5 @@
 <div class="container text-center">
-  <div class="display-6 my-2">Cadastro de Profissionais:</div>
+  <div class="display-6 my-2" id="title">Cadastro de Profissionais:</div>
 
   <div class="border rounded shadow-sm p-4">
     <form
@@ -110,6 +110,7 @@
               type="button"
               class="btn btn-danger me-1"
               (click)="cancel()"
+              id="btnCancel"
             >
               Cancelar
             </button>
@@ -118,6 +119,7 @@
               class="btn btn-primary"
               [disabled]="!professionalForm.dirty"
               (click)="save()"
+              id="btnSave"
             >
               Salvar
             </button>
