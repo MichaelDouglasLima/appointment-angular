@@ -13,7 +13,10 @@ java_pid=$!
 cd ..
 git clone https://github.com/MichaelDouglasLima/appointment-angular.git
 cd appointment-angular
-# git checkout tests/issue31-issue37
+
+# TODO: Remove this after update develop branch with test issues
+git checkout tests/issue31-issue37
+
 npm install
 ng test --browsers=ChromeHeadless --watch=false
 ng s &
