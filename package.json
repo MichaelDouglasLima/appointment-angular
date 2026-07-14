@@ -7,7 +7,8 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "backend": "json-server --watch src/app/json-server/data.json --port 3000"
+    "backend": "json-server --watch src/app/json-server/data.json --port 3000",
+    "cypress": "npx cypress open"
   },
   "private": true,
   "dependencies": {
@@ -31,7 +32,9 @@
     "@angular/cli": "~16.1.4",
     "@angular/compiler-cli": "^16.1.0",
     "@angular/localize": "^16.1.0",
+    "@faker-js/faker": "^10.5.0",
     "@types/jasmine": "~4.3.0",
+    "cypress": "^13.11.0",
     "jasmine-core": "~4.6.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
