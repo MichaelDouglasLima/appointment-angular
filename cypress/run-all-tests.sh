@@ -13,15 +13,12 @@ java_pid=$!
 cd ..
 git clone https://github.com/MichaelDouglasLima/appointment-angular.git
 cd appointment-angular
+# git checkout tests/issue31-issue37
 npm install
 ng test --browsers=ChromeHeadless --watch=false
 ng s &
 ng_pid=$!
 
-# garantir ambiente do Cypress
-# node -v
-# npm install --save-dev cypress@13.11.0
-# npx cypress install
 npx cypress run
 
 kill $java_pid
