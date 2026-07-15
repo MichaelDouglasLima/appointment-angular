@@ -1,0 +1,20 @@
+[
+  {
+    "id": 6,
+    "name": "Marcelo Silva",
+    "phone": "13 999216212",
+    "active": true
+  },
+  {
+    "id": 7,
+    "name": "Fernanda Cruz",
+    "phone": "13 999216212",
+    "active": true
+  },
+  {
+    "id": 8,
+    "name": "Lucia Gomes",
+    "phone": "13 999216212",
+    "active": false
+  }
+]

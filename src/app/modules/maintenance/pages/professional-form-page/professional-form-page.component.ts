@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ProfessionalService } from 'src/app/core/services/professional.service';
 import { ToastService } from 'src/app/core/services/toast.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AreaService } from 'src/app/core/services/area.service';
 import { Area } from 'src/app/core/models/area';
 
@@ -23,7 +23,8 @@ export class ProfessionalFormPageComponent implements OnInit {
     private areaService: AreaService,
     private toastService: ToastService,
     private location: Location,
-    private router: ActivatedRoute,
+    private activatedRouter: ActivatedRoute,
+    private router: Router,
   ) {
     this.professionalForm = this.formBuilder.group({
       id: [''],
@@ -35,7 +36,7 @@ export class ProfessionalFormPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe((params) => {
+    this.activatedRouter.paramMap.subscribe((params) => {
       let professionalId = Number(params.get('id') ?? '0');
 
       if (professionalId) {
@@ -76,7 +77,8 @@ export class ProfessionalFormPageComponent implements OnInit {
   }
 
   cancel() {
-    this.location.back();
+    // this.location.back();
+    this.router.navigate(['/professionals-table']);
   }
 
   save() {
@@ -94,7 +96,8 @@ export class ProfessionalFormPageComponent implements OnInit {
           this.toastService.show('Profissional salvo com sucesso!', {
             classname: 'bg-success text-light',
           });
-          this.location.back();
+          // this.location.back();
+          this.router.navigate(['/professionals-table']);
         },
         error: () => {
           this.toastService.show('Erro ao criar um profissional!', {
@@ -112,7 +115,8 @@ export class ProfessionalFormPageComponent implements OnInit {
           this.toastService.show('Profissional atualizado com sucesso!', {
             classname: 'bg-success text-light',
           });
-          this.location.back();
+          // this.location.back();
+          this.router.navigate(['/professionals-table']);
         },
         error: () => {
           this.toastService.show('Erro ao atualizar um profissional!', {
