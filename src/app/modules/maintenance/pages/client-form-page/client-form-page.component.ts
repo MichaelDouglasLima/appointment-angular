@@ -3,7 +3,7 @@ import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Client } from 'src/app/core/models/client';
 import { ClientService } from 'src/app/core/services/client.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ToastService } from 'src/app/core/services/toast.service';
 
 @Component({
@@ -19,8 +19,9 @@ export class ClientFormPageComponent implements OnInit {
     private formBuilder: FormBuilder,
     private clientService: ClientService,
     private location: Location,
-    private router: ActivatedRoute,
+    private activatedRouter: ActivatedRoute,
     private toastService: ToastService,
+    private router: Router,
   ) {
     this.clientForm = this.formBuilder.group({
       id: [''],
@@ -33,7 +34,7 @@ export class ClientFormPageComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.router.paramMap.subscribe((params) => {
+    this.activatedRouter.paramMap.subscribe((params) => {
       let clientId = Number(params.get('id') ?? '0');
 
       if (clientId) {
@@ -62,7 +63,8 @@ export class ClientFormPageComponent implements OnInit {
             this.toastService.show('Cliente atualizado com sucesso!', {
               classname: 'bg-success text-light',
             });
-            this.location.back();
+            // this.location.back();
+            this.router.navigate(['/clients-table']);
           },
           error: () => {
             this.toastService.show('Erro ao salvar um cliente!', {
@@ -76,7 +78,8 @@ export class ClientFormPageComponent implements OnInit {
             this.toastService.show('Cliente salvo com sucesso!', {
               classname: 'bg-success text-light',
             });
-            this.location.back();
+            // this.location.back();
+            this.router.navigate(['/clients-table']);
           },
           error: () => {
             this.toastService.show('Erro ao criar um cliente!', {
@@ -89,7 +92,8 @@ export class ClientFormPageComponent implements OnInit {
   }
 
   cancel(): void {
-    this.location.back();
+    // this.location.back();
+    this.router.navigate(['/clients-table']);
   }
 
   get cfName() {
