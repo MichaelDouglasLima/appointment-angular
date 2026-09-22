@@ -28,7 +28,7 @@
 
             <div *ngIf="ngClientForm.submitted" class="text-danger text-start">
               <small *ngIf="cfName?.errors?.['required']"
-                ><sup>*</sup>Nome obrigatório</small
+                ><sup>*</sup>Nome obrigatório!</small
               >
               <small
                 *ngIf="cfName?.errors?.['minlength']"
@@ -55,7 +55,7 @@
                   class="text-danger text-start"
                 >
                   <small *ngIf="cfPhone?.errors?.['required']"
-                    ><sup>*</sup>Telefone obrigatório</small
+                    ><sup>*</sup>Telefone obrigatório!</small
                   >
                 </div>
               </div>
@@ -77,7 +77,7 @@
                   class="text-danger text-start"
                 >
                   <small *ngIf="cfDateOfBirth?.errors?.['required']"
-                    ><sup>*</sup>Data de nascimento obrigatória</small
+                    ><sup>*</sup>Data de nascimento obrigatória!</small
                   >
                 </div>
               </div>
