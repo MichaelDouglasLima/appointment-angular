@@ -1,3 +1,5 @@
+/// <reference types="cypress" />
+
 describe('Clients Table Page', () => {
   beforeEach(() => {
     cy.visit('clients-table');
