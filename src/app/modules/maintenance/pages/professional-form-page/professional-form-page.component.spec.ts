@@ -28,4 +28,21 @@ describe('ProfessionalFormPageComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should find professional form title "Cadastro de Profissionais:"', () => {
+    const element = fixture.debugElement.nativeElement.querySelector('#title');
+    expect(element.textContent.trim()).toEqual('Cadastro de Profissionais:');
+  });
+
+  it('should find cancel button "Cancelar', () => {
+    const element =
+      fixture.debugElement.nativeElement.querySelector('#btnCancel');
+    expect(element.textContent.trim()).toEqual('Cancelar');
+  });
+
+  it('should find save button "Salvar', () => {
+    const element =
+      fixture.debugElement.nativeElement.querySelector('#btnSave');
+    expect(element.textContent.trim()).toEqual('Salvar');
+  });
 });
