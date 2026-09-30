@@ -35,7 +35,7 @@
               class="text-danger text-start"
             >
               <small *ngIf="pfName?.errors?.['required']"
-                ><sup>*</sup>Nome obrigatório</small
+                ><sup>*</sup>Nome obrigatório!</small
               >
               <small
                 *ngIf="pfName?.errors?.['minlength']"
@@ -62,7 +62,7 @@
                   class="text-danger text-start"
                 >
                   <small *ngIf="pfPhone?.errors?.['required']"
-                    ><sup>*</sup>Telefone obrigatório</small
+                    ><sup>*</sup>Telefone obrigatório!</small
                   >
                 </div>
               </div>
@@ -75,6 +75,7 @@
                   class="form-select"
                   aria-label="Selecione a atividade"
                   formControlName="active"
+                  id="active"
                 >
                   <option [ngValue]="true">Ativado</option>
                   <option [ngValue]="false">Desativado</option>
@@ -85,7 +86,7 @@
                   class="text-danger text-start"
                 >
                   <small *ngIf="pfActive?.errors?.['required']"
-                    ><sup>*</sup>Atividade é obrigatória</small
+                    ><sup>*</sup>Atividade é obrigatória!</small
                   >
                 </div>
               </div>

@@ -8,7 +8,8 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "backend": "json-server --watch src/app/json-server/data.json --port 3000",
-    "cypress": "npx cypress open"
+    "cypress": "npx cypress open",
+    "test:all": "sh cypress/run-all-tests.sh"
   },
   "private": true,
   "dependencies": {

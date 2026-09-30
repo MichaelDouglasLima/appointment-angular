@@ -7,6 +7,7 @@
       aria-label="Selecione uma área"
       formControlName="area"
       (change)="onAreaChange()"
+      id="area"
     >
       <!-- <option value="" selected>Selecione uma área</option> -->
 
@@ -30,6 +31,7 @@
       aria-label="Selecione um profissional"
       formControlName="professional"
       (change)="onProfessionalChange()"
+      id="professional"
     >
       <!-- <option value="" selected>Selecione um profissional</option> -->
 
@@ -55,6 +57,7 @@
       class="form-select"
       aria-label="Tipo de atendimento"
       formControlName="type"
+      id="appointmentType"
     >
       <!-- <option value="" selected>Selecione o tipo de atendimento</option> -->
 
@@ -78,7 +81,7 @@
 
     <div class="input-group">
       <input
-        id="typeahead-basic"
+        id="client"
         type="text"
         class="form-control"
         formControlName="client"
